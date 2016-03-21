@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.attendance.dao.AttendMapper" >
+  <resultMap id="BaseResultMap" type="com.attendance.model.Attend" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="lesson_id" property="lesson_id" jdbcType="INTEGER" />
+    <result column="teacher_id" property="teacher_id" jdbcType="INTEGER" />
+    <result column="student_id" property="student_id" jdbcType="VARCHAR" />
+    <result column="status_id" property="status_id" jdbcType="INTEGER" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="classes_id" property="classes_id" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, lesson_id, teacher_id, student_id, status_id, reason, classes_id, date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from attend
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from attend
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.attendance.model.Attend" >
+    insert into attend (Id, lesson_id, teacher_id, 
+      student_id, status_id, reason, 
+      classes_id, date)
+    values (#{id,jdbcType=INTEGER}, #{lesson_id,jdbcType=INTEGER}, #{teacher_id,jdbcType=INTEGER}, 
+      #{student_id,jdbcType=VARCHAR}, #{status_id,jdbcType=INTEGER}, #{reason,jdbcType=VARCHAR}, 
+      #{classes_id,jdbcType=VARCHAR}, #{date,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.attendance.model.Attend" >
+    insert into attend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="lesson_id != null" >
+        lesson_id,
+      </if>
+      <if test="teacher_id != null" >
+        teacher_id,
+      </if>
+      <if test="student_id != null" >
+        student_id,
+      </if>
+      <if test="status_id != null" >
+        status_id,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="classes_id != null" >
+        classes_id,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="lesson_id != null" >
+        #{lesson_id,jdbcType=INTEGER},
+      </if>
+      <if test="teacher_id != null" >
+        #{teacher_id,jdbcType=INTEGER},
+      </if>
+      <if test="student_id != null" >
+        #{student_id,jdbcType=VARCHAR},
+      </if>
+      <if test="status_id != null" >
+        #{status_id,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="classes_id != null" >
+        #{classes_id,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.attendance.model.Attend" >
+    update attend
+    <set >
+      <if test="lesson_id != null" >
+        lesson_id = #{lesson_id,jdbcType=INTEGER},
+      </if>
+      <if test="teacher_id != null" >
+        teacher_id = #{teacher_id,jdbcType=INTEGER},
+      </if>
+      <if test="student_id != null" >
+        student_id = #{student_id,jdbcType=VARCHAR},
+      </if>
+      <if test="status_id != null" >
+        status_id = #{status_id,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="classes_id != null" >
+        classes_id = #{classes_id,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.attendance.model.Attend" >
+    update attend
+    set lesson_id = #{lesson_id,jdbcType=INTEGER},
+      teacher_id = #{teacher_id,jdbcType=INTEGER},
+      student_id = #{student_id,jdbcType=VARCHAR},
+      status_id = #{status_id,jdbcType=INTEGER},
+      reason = #{reason,jdbcType=VARCHAR},
+      classes_id = #{classes_id,jdbcType=VARCHAR},
+      date = #{date,jdbcType=DATE}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,23 @@
+package com.attendance.dao;
+
+import java.util.ArrayList;
+
+import com.attendance.model.Lesson;
+
+public interface LessonMapper {
+	
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Lesson record);
+
+    int insertSelective(Lesson record);
+
+    Lesson selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Lesson record);
+
+    int updateByPrimaryKey(Lesson record);
+    
+    ArrayList<Lesson> getAllLesson(Integer teacherid);
+    
+}
