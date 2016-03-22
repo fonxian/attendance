@@ -1,20 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-<!DOCTYPE html>
-<html>
-<head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<jsp:include page="header.jsp"></jsp:include>
 
-</head>
-<body>
-
-	 <p>欢迎${teacher.realname}</p>
-	 <ul>
-	 	<li><a href="../lesson/list?teacherId=${teacher.id}">课程管理</a></li>
-	 	<li><a>个人信息管理</a></li>
-	 	<li><a>考勤管理</a></li>
-	 </ul>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">欢迎${teacher.realname}</h1>
+          <div class="row placeholders">
+      			<h3>欢迎使用科大课堂点名系统</h3>
+          </div>
+</div>
 </body>
 </html>

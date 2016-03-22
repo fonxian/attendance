@@ -23,7 +23,7 @@ public class StudentController extends BaseController{
 	public ModelAndView list(int classid,ModelMap modelMap){
 		List<Student> classStudentGroup = studentService.getGroupByClass(classid);
 		modelMap.put("classStudentGroup",classStudentGroup);
-		return new ModelAndView("teacher/classstudent",modelMap);
+		return new ModelAndView("teacher/listClassStudent",modelMap);
 	}
 	
 	@RequestMapping("/add")
@@ -44,11 +44,11 @@ public class StudentController extends BaseController{
 		return new ModelAndView("redirect:/student/list?classid="+student.getClasses_id()+"");
 	}
 	
-	@RequestMapping("/lesson/list")
+	@RequestMapping("/listLessonStudent")
 	public ModelAndView lessonList(int lessonId,ModelMap modelMap) {
 		List<Student> lessonStudentGroup = studentService.getGroupByLesson(lessonId);
 		modelMap.put("lessonStudentGroup",lessonStudentGroup);
-		return new ModelAndView("teacher/lessonStudent",modelMap);
+		return new ModelAndView("teacher/listLessonStudent",modelMap);
 	}
 	
 }

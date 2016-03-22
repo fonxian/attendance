@@ -22,7 +22,7 @@ public interface StudentMapper {
     
     ArrayList<Student> getAllStudentByClassId(Integer id);
     
-    @Select("select s.Id,s.name,s.sex from student s,classes c,lessonhave l where s.classes_id = l.classes_id and l.classes_id = c.Id and l.lesson_id = #{id}")
+    @Select("select s.Id,s.name,s.sex,s.classes_id from student s,classes c,lessonhave l where s.classes_id = l.classes_id and l.classes_id = c.Id and l.lesson_id = #{id}")
     ArrayList<Student> getStudentGroupByLesson(Integer id);
     
     

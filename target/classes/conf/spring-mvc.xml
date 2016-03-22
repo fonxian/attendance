@@ -14,6 +14,11 @@
     
     <!-- 扫描文件（自动注入）,包括DAO层注入Service层，Service层注入Controller层 -->
     <context:component-scan base-package="com.attendance"/>
+    
+    <mvc:resources mapping="/common/css/**" location="/common/css/"/>
+    <mvc:resources mapping="/common/js/**" location="/common/js/"/>
+    <mvc:resources mapping="/common/fronts/**" location="/common/fronts/"/>
+    
     <mvc:annotation-driven />
    <!-- 避免IE在ajax请求时，返回json出现下载 -->
    <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">     
@@ -25,6 +30,9 @@
     </bean>
      
    <!-- 对模型视图添加前后缀 -->
-     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-      p:prefix="/" p:suffix=".jsp"/>
+     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="prefix" value="/" />
+        <property name="suffix" value=".jsp" />
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+     </bean>
 </beans>

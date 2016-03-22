@@ -1,8 +1,10 @@
 package com.attendance.service;
 
+import com.attendance.model.Attend;
+
 public interface AttendService {
 	
-	public boolean setStudentAttend(int lessonid,int studentid,int statusid,String reason);
+	public boolean setStudentAttend(Attend attend);
 	
 	public boolean countLessonAttend(int classid,int lesson);
 	

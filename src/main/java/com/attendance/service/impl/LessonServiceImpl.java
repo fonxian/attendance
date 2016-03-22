@@ -23,7 +23,8 @@ public class LessonServiceImpl implements LessonService{
 
 	@Override
 	public boolean del(int lessonid) {
-		return false;
+		lessonMapper.deleteByPrimaryKey(lessonid);
+		return true;
 	}
 
 	@Override

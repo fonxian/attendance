@@ -1,34 +1,47 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<jsp:include page="header.jsp"></jsp:include>
+ <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+ <h1 class="page-header">添加课程</h1>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
+    <form action="../lesson/saveAdd" class="form-horizontal" method="post">
     
-    <title>My JSP 'addlesson.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-
-
-  </head>
-  
-  <body>
-    <form action="lesson/saveAdd" method="post">
-        <label>课程编号</label>
-		<input type="text" name="Id"> 
-		<label>课程名</label>
-		<input type="text" name="name"> 
-		<label>任课老师编号</label>
-		<input type="text" name="teacher_id">
-		 <input type="submit"  value="确认"> 
+    	<div class="control-group">
+        	<label class="control-label'">课程编号</label>
+        	<div class="controls">
+				<input type="text" name="id" >
+			</div>
+		</div>
+		
+		<div class="control-group">
+        	<label class="control-label'">课程名</label>
+        	<div class="controls">
+				<input type="text" name="name" >
+			</div>
+		</div>
+		
+		<div class="control-group">
+        	<label class="control-label'">任课老师编号</label>
+        	<div class="controls">
+				<input type="text" name="teacher_id" value="${teacher.id}" >
+			</div>
+		</div>
+		
+		<div class="control-group">
+        	<label class="control-label'">任课老师姓名</label>
+        	<div class="controls">
+				<input type="text" value="${teacher.realname}" >
+			</div>
+		</div>
+	
+		<div class="control-group">
+		    <div class="controls">
+		 		<button type="submit"  class="btn">添加</button>
+			 </div>
+		</div>
+		
 	</form>
+	</div>
+
   </body>
 </html>
