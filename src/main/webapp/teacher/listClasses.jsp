@@ -4,6 +4,7 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  <h1 class="page-header">上课班级列表</h1>
+ <h4><a>添加上课班级</a></h4>
    <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -22,5 +23,6 @@
               </tbody>
             </table>
           </div>
+  </div>
   </body>
 </html>

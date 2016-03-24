@@ -20,44 +20,56 @@
               <tbody>
               <c:forEach items="${lessonStudentGroup}" var="s">
 			<tr>
-				<td id="studentid">${s.id}</td>
-				<td>${s.name}</td>
+				<td>${s.id}</td>
+				<td class="name">${s.name}</td>
 				<td>${s.classes_id}</td>
 				<td>
-				<a id="normal"href="#">正常</a> |
-				<a id="absent"href="#">缺勤</a> |
-				<a id="leave"href="#">请假</a> |
-				<a id="late"href="#">迟到</a></td>
-				<td><input name="result" /></td>
+					<button class="attend" name="1">正常</button> |
+					<button class="attend"  name="2">缺勤</button> |
+					<button  class="attend" name="3">请假</button> |
+					<button class="attend"  name = "4">迟到</button>
+				</td>
+				<td><input name="result"/></td>
 			</tr>
 		</c:forEach>
               </tbody>
             </table>
-            	<button id="btn1" type="button">提交内容</button>
           </div>
 	</div>
 
 	<script>
-	//$("#normal").click(function(){
 	$(document).ready(function(){
-		
-		$("#btn1").click(function(){
+		//点名记录
+		$(".attend").click(function(){
 			var lesson_id = 1;
-			var student_id=1205010106; 
-			//= $("#studentid").val();
-			var teacher_id = 1000;
-			var reason ="实习";
-			var classes_id="12050101";
-			var status_id = 1;
+			var student_id = $(this).parent("td").prevAll('td').eq(2).text();
+			var teacher_id = ${teacher.id}
+			var reason =$(this).parent("td").next().find("input").val();
+			console.log(reason);
+			var classes_id=$(this).parent("td").prevAll('td').eq(0).text();
+			var status_id = $(this).attr("name");
 			$.ajax({
 				type:"POST",
 				url : "<%=contextPath%>attend/add",
 				data:{lesson_id:lesson_id,student_id:student_id,teacher_id:teacher_id,status_id:status_id,reason:reason,classes_id:classes_id},
-				success:function(){
-					alert("success");
+		  		success:function(){
+				alert("success");
+				$(this).css({"color":"red"});
 				}
 			});
 		});
+		//姓名朗读
+		$(".name").click(function(){
+			var name =$(this).text();
+			$.ajax({
+				type:"POST",
+				url : "<%=contextPath%>attend/read",
+				data:{name:name},
+		  		success:function(){
+				}
+		   });
+		});
+		
 	});
 		
 		</script>

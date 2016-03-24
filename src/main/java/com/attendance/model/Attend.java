@@ -9,17 +9,35 @@ public class Attend {
 
     private Integer teacher_id;
 
-    private String student_id;
+    private Integer  student_id;
 
     private Integer status_id;
 
     private String reason;
 
-    private String classes_id;
+    private Integer  classes_id;
 
     private Date date;
 
-    public Integer getId() {
+    
+    
+    public Integer getStudent_id() {
+		return student_id;
+	}
+
+	public void setStudent_id(Integer student_id) {
+		this.student_id = student_id;
+	}
+
+	public Integer getClasses_id() {
+		return classes_id;
+	}
+
+	public void setClasses_id(Integer classes_id) {
+		this.classes_id = classes_id;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -43,13 +61,7 @@ public class Attend {
         this.teacher_id = teacher_id;
     }
 
-    public String getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(String student_id) {
-        this.student_id = student_id == null ? null : student_id.trim();
-    }
+   
 
     public Integer getStatus_id() {
         return status_id;
@@ -65,14 +77,6 @@ public class Attend {
 
     public void setReason(String reason) {
         this.reason = reason == null ? null : reason.trim();
-    }
-
-    public String getClasses_id() {
-        return classes_id;
-    }
-
-    public void setClasses_id(String classes_id) {
-        this.classes_id = classes_id == null ? null : classes_id.trim();
     }
 
     public Date getDate() {

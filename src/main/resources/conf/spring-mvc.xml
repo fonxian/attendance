@@ -28,11 +28,40 @@
             </list>
         </property>
     </bean>
-     
+   <!-- 登录拦截 -->
+   <!-- 
+   <mvc:interceptors>
+   		<mvc:interceptor>
+   			<mvc:mapping path="/**"/>
+   			<mvc:mapping path="/teacher/**"/>
+   			<mvc:mapping path="/lesson/**"/>
+   			<bean class="com.attendance.util.CommonInterceptor"></bean>
+   		</mvc:interceptor>
+   </mvc:interceptors>
+    -->
    <!-- 对模型视图添加前后缀 -->
      <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
      <property name="prefix" value="/" />
         <property name="suffix" value=".jsp" />
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
      </bean>
+     
+        <!-- json -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="mappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+     
+     
 </beans>

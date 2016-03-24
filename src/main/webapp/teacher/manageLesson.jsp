@@ -4,7 +4,7 @@
 
  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  <h1 class="page-header">课程管理</h1>
- <h3><a href="../lesson/add">添加课程</a></h3>
+ <h4><a href="../lesson/add">添加课程</a></h4>
    <div class="table-responsive">
             <table class="table table-striped">
               <thead>

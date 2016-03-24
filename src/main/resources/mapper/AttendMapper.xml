@@ -5,10 +5,10 @@
     <id column="Id" property="id" jdbcType="INTEGER" />
     <result column="lesson_id" property="lesson_id" jdbcType="INTEGER" />
     <result column="teacher_id" property="teacher_id" jdbcType="INTEGER" />
-    <result column="student_id" property="student_id" jdbcType="VARCHAR" />
+    <result column="student_id" property="student_id" jdbcType="INTEGER" />
     <result column="status_id" property="status_id" jdbcType="INTEGER" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
-    <result column="classes_id" property="classes_id" jdbcType="VARCHAR" />
+    <result column="classes_id" property="classes_id" jdbcType="INTEGER" />
     <result column="date" property="date" jdbcType="DATE" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -71,7 +71,7 @@
         #{teacher_id,jdbcType=INTEGER},
       </if>
       <if test="student_id != null" >
-        #{student_id,jdbcType=VARCHAR},
+        #{student_id,jdbcType=INTEGER},
       </if>
       <if test="status_id != null" >
         #{status_id,jdbcType=INTEGER},
@@ -80,7 +80,7 @@
         #{reason,jdbcType=VARCHAR},
       </if>
       <if test="classes_id != null" >
-        #{classes_id,jdbcType=VARCHAR},
+        #{classes_id,jdbcType=INTEGER},
       </if>
       <if test="date != null" >
         #{date,jdbcType=DATE},
@@ -97,7 +97,7 @@
         teacher_id = #{teacher_id,jdbcType=INTEGER},
       </if>
       <if test="student_id != null" >
-        student_id = #{student_id,jdbcType=VARCHAR},
+        student_id = #{student_id,jdbcType=INTEGER},
       </if>
       <if test="status_id != null" >
         status_id = #{status_id,jdbcType=INTEGER},
@@ -106,7 +106,7 @@
         reason = #{reason,jdbcType=VARCHAR},
       </if>
       <if test="classes_id != null" >
-        classes_id = #{classes_id,jdbcType=VARCHAR},
+        classes_id = #{classes_id,jdbcType=INTEGER},
       </if>
       <if test="date != null" >
         date = #{date,jdbcType=DATE},
@@ -118,10 +118,10 @@
     update attend
     set lesson_id = #{lesson_id,jdbcType=INTEGER},
       teacher_id = #{teacher_id,jdbcType=INTEGER},
-      student_id = #{student_id,jdbcType=VARCHAR},
+      student_id = #{student_id,jdbcType=INTEGER},
       status_id = #{status_id,jdbcType=INTEGER},
       reason = #{reason,jdbcType=VARCHAR},
-      classes_id = #{classes_id,jdbcType=VARCHAR},
+      classes_id = #{classes_id,jdbcType=INTEGER},
       date = #{date,jdbcType=DATE}
     where Id = #{id,jdbcType=INTEGER}
   </update>

@@ -49,7 +49,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="../teacher/index.jsp">系统概览 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">个人信息管理</a></li>
+            <li><a href="../teacher/update">个人信息管理</a></li>
             <li><a href="../lesson/list">课程管理</a></li>
             <li><a href="../attend/index">考勤管理</a></li>
           </ul>
