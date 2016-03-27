@@ -2,10 +2,13 @@ package com.attendance.controller;
 
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.attendance.model.Attend;
+import com.attendance.model.AttendTemp;
 import com.attendance.service.AttendService;
+import com.attendance.service.StudentService;
 import com.attendance.util.Result;
 import com.attendance.util.SpeakUtil;
 
@@ -23,6 +28,9 @@ public class AttendController extends BaseController{
 
 	@Autowired
 	private AttendService attendService;
+	@Autowired
+	private StudentService studentService;
+		
 	
 	@RequestMapping("/index")
 	public ModelAndView index(){
@@ -33,7 +41,6 @@ public class AttendController extends BaseController{
 	@ResponseBody
 	public String read(HttpServletRequest request)throws ServletRequestBindingException{
 		Result result = new Result();
-		Attend attend = new Attend();	
 		String name= ServletRequestUtils.getStringParameter(request, "name");
 		SpeakUtil.attend(name);
 		result.setSuccess(true);
@@ -65,6 +72,14 @@ public class AttendController extends BaseController{
 		
 		result.setSuccess(true);
 		return result.toString();
+	}
+	
+	@RequestMapping("/listLessonAttend")
+	public ModelAndView lessonAttendList(ModelMap modelMap) {
+		int lessonId = 1;
+		ArrayList<AttendTemp> attendTempGroup= attendService.countLessonAttend(lessonId);
+		modelMap.put("attendTempGroup",attendTempGroup);
+		return new ModelAndView("teacher/listLessonAttend",modelMap);
 	}
 	
 }

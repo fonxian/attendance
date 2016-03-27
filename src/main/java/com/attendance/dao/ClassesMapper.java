@@ -2,6 +2,8 @@ package com.attendance.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.attendance.model.Classes;
@@ -22,5 +24,8 @@ public interface ClassesMapper {
     
     @Select("select classes.Id,classes.name,school_id,leader_id,student_num from classes,lessonhave where lessonhave.classes_id = classes.Id and lessonhave.lesson_id= #{id}")
     ArrayList<Classes> getClasses(Integer id);
+    
+    @Insert("insert into lessonhave(lessonhave.classes_id,lessonhave.lesson_id) values( #{classes_id},#{lesson_id} )")
+    int insertLessonClasses(@Param("classes_id")Integer classes_id,@Param("lesson_id")Integer lesson_id);
     
 }

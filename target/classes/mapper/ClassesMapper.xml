@@ -8,11 +8,6 @@
     <result column="leader_id" property="leader_id" jdbcType="INTEGER" />
     <result column="student_num" property="student_num" jdbcType="INTEGER" />
   </resultMap>
-    <resultMap id="BaseResultMap1" type="com.attendance.model.LessonHave" >
-    <id column="Id" property="id" jdbcType="INTEGER" />
-    <result column="classes_id" property="classes_id" jdbcType="INTEGER" />
-    <result column="lesson_id" property="lesson_id" jdbcType="INTEGER" />
-  </resultMap>
   <sql id="Base_Column_List" >
     Id, name, school_id, leader_id, student_num
   </sql>

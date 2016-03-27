@@ -11,7 +11,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="School" type="com.attendance.model.School" />
 		<typeAlias alias="Lesson" type="com.attendance.model.Lesson" />
 		<typeAlias alias="Status" type="com.attendance.model.Status" />
-		<typeAlias alias="LessonHave" type="com.attendance.model.LessonHave" />
 		<typeAlias alias="Attend" type="com.attendance.model.Attend" />
 		
 	</typeAliases>

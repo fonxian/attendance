@@ -17,10 +17,10 @@ public class SpeakTest {
 			// 音量 0-100
 			sap.setProperty("Volume", new Variant(100));
 			// 语音朗读速度 -10 到 +10
-			sap.setProperty("Rate", new Variant(2));
+			sap.setProperty("Rate", new Variant(-3));
 
 			// 执行朗读
-			Dispatch.call(sapo, "Speak", new Variant("杨洪松，你是个大傻逼"));
+			Dispatch.call(sapo, "Speak", new Variant("测试一下"));
 
 		} catch (Exception e) {
 			e.printStackTrace();

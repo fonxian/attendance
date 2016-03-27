@@ -15,7 +15,7 @@ public class SpeakUtil {
 			// 音量 0-100
 			sap.setProperty("Volume", new Variant(100));
 			// 语音朗读速度 -10 到 +10
-			sap.setProperty("Rate", new Variant(-1));
+			sap.setProperty("Rate", new Variant(-3));
 			// 执行朗读
 			Dispatch.call(sapo, "Speak", new Variant(name));
 
@@ -28,7 +28,7 @@ public class SpeakUtil {
 	}
 	
 	public static void main(String[] args) {
-		attend("哈哈");
+		attend("语音朗读功能测试");
 	}
 	
 }

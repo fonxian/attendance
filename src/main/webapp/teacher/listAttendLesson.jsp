@@ -11,6 +11,7 @@
                   <th>课程编号</th>
                   <th>课程名</th>
                   <th>考勤</th>
+                  <th>考勤情况</th>
                 </tr>
               </thead>
               <tbody>
@@ -19,6 +20,7 @@
 					<td>${s.id}</td>
 					<td><a href="../classes/list?lessonid=${s.id}">${s.name}</a></td>
 					<td><a href="../student/listLessonStudent?lessonId=${s.id}">上课学生名单</a></td>
+					<td><a href="../attend/listLessonAttend">考勤情况</a></td>
 				</tr>
 				</c:forEach>
               </tbody>

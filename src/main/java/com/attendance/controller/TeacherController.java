@@ -1,8 +1,5 @@
 package com.attendance.controller;
 
-
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.attendance.model.Lesson;
 import com.attendance.model.Teacher;
 import com.attendance.service.TeacherService;
 import com.attendance.util.MD5Utils;
@@ -63,10 +59,6 @@ public class TeacherController extends BaseController{
 	
 	@RequestMapping("update")
 	public ModelAndView update(){
-		//Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
-		//List<Lesson> lessonGroup = lessonService.getGroupByTeacher(teacher.getId());
-		//teacherService.update(teacher);
-		//modelMap.put("teacher", teacher);
 		return new ModelAndView("/teacher/myinfo");
 	}
 	

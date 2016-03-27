@@ -18,4 +18,6 @@ public interface ClassesService {
 	
 	public ArrayList<Classes> getClassesGroupByLesson(int lessonid);
 	
+	public boolean insertLessonClasses(int classes_id,int lesson_id);
+	
 }

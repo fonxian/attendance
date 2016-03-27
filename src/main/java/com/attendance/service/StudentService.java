@@ -18,4 +18,6 @@ public interface StudentService {
 	
 	public ArrayList<Student> getGroupByLesson(int lessonId); 
 	
+	public ArrayList<Student> getAllStudentGroup();
+	
 }

@@ -50,4 +50,10 @@ public class StudentServiceImpl implements StudentService {
 		return studentGroupLesson;
 	}
 
+	@Override
+	public ArrayList<Student> getAllStudentGroup() {
+		ArrayList<Student> studentGroup = studentMapper.getAllStudent();
+		return studentGroup;
+	}
+
 }
