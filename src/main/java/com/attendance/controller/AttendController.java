@@ -19,7 +19,6 @@ import com.attendance.model.AttendTemp;
 import com.attendance.service.AttendService;
 import com.attendance.service.StudentService;
 import com.attendance.util.Result;
-import com.attendance.util.SpeakUtil;
 
 @Controller
 @RequestMapping("/attend")
@@ -36,15 +35,6 @@ public class AttendController extends BaseController{
 		return "redirect:/lesson/attendList";
 	}
 	
-	@RequestMapping(value="/read", produces = "text/plain;charset=UTF-8")
-	@ResponseBody
-	public String read(HttpServletRequest request)throws ServletRequestBindingException{
-		Result result = new Result();
-		String name= ServletRequestUtils.getStringParameter(request, "name");
-		SpeakUtil.attend(name);
-		result.setSuccess(true);
-		return result.toString();
-	}
 	
 	@RequestMapping(value="/add", produces = "text/plain;charset=UTF-8")
 	@ResponseBody

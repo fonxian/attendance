@@ -50,11 +50,6 @@ public class SpeakUtil implements Runnable{
 	@Override
 	public void run() {
 		
-//		while(getFlag()==1){
-		
-			attend(getName());
-//		}
-		
 	}
 	
 }

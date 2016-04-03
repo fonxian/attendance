@@ -47,4 +47,6 @@
 		p:dataSource-ref="dataSource" />
 	<tx:annotation-driven mode="proxy"
 		transaction-manager="transactionManager" />
+		
+		
 </beans>

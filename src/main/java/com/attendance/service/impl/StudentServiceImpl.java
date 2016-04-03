@@ -1,7 +1,6 @@
 package com.attendance.service.impl;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.attendance.dao.StudentMapper;
 import com.attendance.model.Student;
 import com.attendance.service.StudentService;
-import com.attendance.util.SpeakUtil;
 
 @Service("studentService")
 public class StudentServiceImpl implements StudentService {
@@ -56,12 +54,6 @@ public class StudentServiceImpl implements StudentService {
 	public ArrayList<Student> getAllStudentGroup() {
 		ArrayList<Student> studentGroup = studentMapper.getAllStudent();
 		return studentGroup;
-	}
-
-	@Override
-	public void readAllStudent(List<Student> studentGroup) {
-		for(Student student:studentGroup)
-			SpeakUtil.attend(student.getName());
 	}
 
 }

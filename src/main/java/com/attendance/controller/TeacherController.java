@@ -46,7 +46,6 @@ public class TeacherController extends BaseController{
 		}
 	}
 	
-	
 	@RequestMapping("/register")
 	public String register(Teacher teacher,ModelMap modelMap){
 		String password =MD5Utils.md5(teacher.getPassword()).toLowerCase();
