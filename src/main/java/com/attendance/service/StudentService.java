@@ -1,6 +1,7 @@
 package com.attendance.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.attendance.model.Student;
 
@@ -19,5 +20,7 @@ public interface StudentService {
 	public ArrayList<Student> getGroupByLesson(int lessonId); 
 	
 	public ArrayList<Student> getAllStudentGroup();
+	
+	public void readAllStudent(List<Student> studentGroup);
 	
 }

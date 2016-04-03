@@ -4,7 +4,27 @@ import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.jacob.com.Variant;
 
-public class SpeakUtil {
+public class SpeakUtil implements Runnable{
+	//falg: 1:正常  2:暂停 3：终止
+	private int flag =1;
+
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
 
 	public static void attend(String name){
 		ActiveXComponent sap = new ActiveXComponent("Sapi.SpVoice");
@@ -27,8 +47,14 @@ public class SpeakUtil {
 		}
 	}
 	
-	public static void main(String[] args) {
-		attend("语音朗读功能测试");
+	@Override
+	public void run() {
+		
+//		while(getFlag()==1){
+		
+			attend(getName());
+//		}
+		
 	}
 	
 }

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.attendance.model.Lesson;
 import com.attendance.model.Teacher;
@@ -22,36 +21,36 @@ public class LessonController extends BaseController{
 	private LessonService lessonService;
 		
 	@RequestMapping("/add")
-	public ModelAndView add(){
-		return new ModelAndView("teacher/addLesson");
+	public String add(){
+		return "teacher/addLesson";
 	}
 	
 	@RequestMapping("/saveAdd")
-	public ModelAndView saveAdd(Lesson lesson){
+	public String saveAdd(Lesson lesson){
 		lessonService.add(lesson);
-		return new ModelAndView("redirect:/lesson/list");
+		return "redirect:/lesson/list";
 	}
 	
 	@RequestMapping("/del")
-	public ModelAndView delete(int lessonid){
+	public String delete(int lessonid){
 		lessonService.del(lessonid);
-		return new ModelAndView("redirect:/lesson/list");
+		return "redirect:/lesson/list";
 	}
 	
 	@RequestMapping("attendList")
-	public ModelAndView attendList(HttpServletRequest request,ModelMap modelMap){
+	public String attendList(HttpServletRequest request,ModelMap modelMap){
 		Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
 		List<Lesson> lessonGroup = lessonService.getGroupByTeacher(teacher.getId());
 		modelMap.put("lessonGroup", lessonGroup);
-		return new ModelAndView("teacher/listAttendLesson");
+		return "teacher/listAttendLesson";
 	}
 	
 	@RequestMapping("/list")
-	public ModelAndView list(HttpServletRequest request,ModelMap modelMap){
+	public String list(HttpServletRequest request,ModelMap modelMap){
 		Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
 		List<Lesson> lessonGroup = lessonService.getGroupByTeacher(teacher.getId());
 		modelMap.put("lessonGroup", lessonGroup);
-		return new ModelAndView("teacher/manageLesson",modelMap);
+		return "teacher/manageLesson";
 	}
 	
 }

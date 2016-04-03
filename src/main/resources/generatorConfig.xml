@@ -39,13 +39,13 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		
-		
+
 			<table schema="general" tableName="student" domainObjectName="Student"
              enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
              enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
             </table>
-            
+  		<!--           
             <table schema="general" tableName="teacher" domainObjectName="Teacher"
              enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
              enableSelectByExample="false" selectByExampleQueryId="false" >
@@ -87,7 +87,7 @@
              enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
             </table>
-
+ -->
 				
 	</context>
 

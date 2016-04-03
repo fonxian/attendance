@@ -13,7 +13,6 @@ import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.attendance.model.Attend;
 import com.attendance.model.AttendTemp;
@@ -33,8 +32,8 @@ public class AttendController extends BaseController{
 		
 	
 	@RequestMapping("/index")
-	public ModelAndView index(){
-		return new ModelAndView("redirect:/lesson/attendList");
+	public String index(){
+		return "redirect:/lesson/attendList";
 	}
 	
 	@RequestMapping(value="/read", produces = "text/plain;charset=UTF-8")
@@ -75,11 +74,11 @@ public class AttendController extends BaseController{
 	}
 	
 	@RequestMapping("/listLessonAttend")
-	public ModelAndView lessonAttendList(ModelMap modelMap) {
+	public  String lessonAttendList(ModelMap modelMap) {
 		int lessonId = 1;
 		ArrayList<AttendTemp> attendTempGroup= attendService.countLessonAttend(lessonId);
 		modelMap.put("attendTempGroup",attendTempGroup);
-		return new ModelAndView("teacher/listLessonAttend",modelMap);
+		return "teacher/listLessonAttend";
 	}
 	
 }

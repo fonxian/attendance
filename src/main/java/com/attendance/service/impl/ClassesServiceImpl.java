@@ -48,7 +48,6 @@ public class ClassesServiceImpl implements ClassesService{
 
 	@Override
 	public boolean insertLessonClasses(int classes_id, int lesson_id) {
-		System.out.println(classes_id+","+lesson_id);
 		classesMapper.insertLessonClasses(classes_id, lesson_id);
 		return false;
 	}

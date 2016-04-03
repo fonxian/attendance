@@ -1,67 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:p="http://www.springframework.org/schema/p"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:mvc="http://www.springframework.org/schema/mvc"
-  xsi:schemaLocation="
-    http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-    http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.2.xsd
-    http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
-    
-    <!-- 扫描文件（自动注入）,包括DAO层注入Service层，Service层注入Controller层 -->
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
     <context:component-scan base-package="com.attendance"/>
-    
-    <mvc:resources mapping="/common/css/**" location="/common/css/"/>
-    <mvc:resources mapping="/common/js/**" location="/common/js/"/>
-    <mvc:resources mapping="/common/fronts/**" location="/common/fronts/"/>
-    
-    <mvc:annotation-driven />
-   <!-- 避免IE在ajax请求时，返回json出现下载 -->
-   <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">     
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/html;charset=UTF-8</value>
-            </list>
+    <!-- 添加注解驱动 -->
+    <mvc:annotation-driven enable-matrix-variables="true"/>
+
+    <!-- 允许对静态资源文件的访问 -->
+    <mvc:default-servlet-handler />
+
+    <!-- use freemarker as view template -->
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+         <property name="templateLoaderPath" value="/" />
+        <property name="freemarkerSettings">
+            <props>
+				<prop key="datetime_format">MM/dd/yyyy</prop>
+				<prop key="number_format">0.######</prop>
+				<prop key="template_update_delay">0</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="locale">zh_CN</prop>
+            </props>
         </property>
     </bean>
-   <!-- 登录拦截 -->
-   <!-- 
-   <mvc:interceptors>
-   		<mvc:interceptor>
-   			<mvc:mapping path="/**"/>
-   			<mvc:mapping path="/teacher/**"/>
-   			<mvc:mapping path="/lesson/**"/>
-   			<bean class="com.attendance.util.CommonInterceptor"></bean>
-   		</mvc:interceptor>
-   </mvc:interceptors>
-    -->
-   <!-- 对模型视图添加前后缀 -->
-     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-     <property name="prefix" value="/" />
-        <property name="suffix" value=".jsp" />
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-     </bean>
-     
-        <!-- json -->
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-		<property name="messageConverters">
-			<list>
-				<ref bean="mappingJacksonHttpMessageConverter" />
-			</list>
-		</property>
-	</bean>
-	<bean id="mappingJacksonHttpMessageConverter"
-		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-		<property name="supportedMediaTypes">
-			<list>
-				<value>text/html;charset=UTF-8</value>
-			</list>
-		</property>
-	</bean>
-     
-     
+
+    <!-- use freemarker as view -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />  
+        <property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="exposeSessionAttributes" value="true" />
+		<property name="requestContextAttribute" value="rc" />
+        <property name="suffix" value=".ftl" />
+        <property name="cache" value="false"/>
+    </bean>
+
 </beans>
