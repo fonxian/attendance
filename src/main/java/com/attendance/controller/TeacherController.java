@@ -9,12 +9,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.attendance.model.Teacher;
 import com.attendance.service.TeacherService;
 import com.attendance.util.MD5Utils;
-import com.attendance.util.Result;
 
 @Controller
 @RequestMapping("/teacher")
@@ -22,6 +20,11 @@ public class TeacherController extends BaseController{
 
 	@Autowired
 	private TeacherService teacherService;
+	
+	@RequestMapping("/index")
+	public  String index() {
+			return "teacher/index";
+	}
 	
 	@RequestMapping("/login")
 	public  String login(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) {
@@ -32,14 +35,6 @@ public class TeacherController extends BaseController{
 		if (teacher != null) {
 			modelMap.put("name", teacher.getRealname());
 			request.getSession().setAttribute("teacher", teacher);
-//			Cookie idCookie = new Cookie("id",teacher.getId().toString());
-//			Cookie usernameCookie = new Cookie("name",teacher.getUsername());
-//			Cookie passwordCookie = new Cookie("password",teacher.getPassword());
-//			Cookie realNameCookie = new Cookie("realname",teacher.getRealname());
-//			response.addCookie(idCookie);
-//			response.addCookie(usernameCookie);
-//			response.addCookie(passwordCookie);
-//			response.addCookie(realNameCookie);
 			return "teacher/index";
 		} else {
 			return "loginFailure";
@@ -61,27 +56,21 @@ public class TeacherController extends BaseController{
 	}
 	
 	@RequestMapping("saveUpdate")
-	@ResponseBody
-	public String saveUpdate(HttpServletRequest request) throws ServletRequestBindingException{
-		Result result = new Result();
-		Teacher teacher = new Teacher();
-		
+	public String saveUpdate(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws ServletRequestBindingException {
+		Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
 		int school_id= ServletRequestUtils.getIntParameter(request, "school_id");
 		String realname= ServletRequestUtils.getStringParameter(request, "realname");
 		String password= ServletRequestUtils.getStringParameter(request, "password");
 		String tel= ServletRequestUtils.getStringParameter(request, "tel");
-		
-		password = MD5Utils.md5(password).toLowerCase();
-		
-		teacher.setPassword(password);
+		if(password.length()>0&&!password.trim().equals("")){
+			password = MD5Utils.md5(password).toLowerCase();
+			teacher.setPassword(password);
+		}
 		teacher.setRealname(realname);
 		teacher.setSchool_id(school_id);
 		teacher.setTel(tel);
-		
 		teacherService.update(teacher);
-		
-		result.setSuccess(true);
-		return result.toString();
+		return "/teacher/myinfo";
 	}
 	
 }

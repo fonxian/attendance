@@ -3,6 +3,7 @@ package com.attendance.dao;
 import com.attendance.model.School;
 
 public interface SchoolMapper {
+	
     int deleteByPrimaryKey(Integer id);
 
     int insert(School record);

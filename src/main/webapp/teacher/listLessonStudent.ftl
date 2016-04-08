@@ -112,6 +112,7 @@
 			var teacher_id = ${teacher.id}
 			var reason =$(this).parent("td").next().find("input").val();
 			var classes_id=$(this).parent("td").prevAll('td').eq(0).text();
+			var test = $(this).parent("td").next("td").find("label");
 			var status_id = $(this).attr("name");
 			var status_name = $(this).text();
 			$.ajax({
@@ -119,8 +120,7 @@
 				url : "${rc.contextPath}/attend/add",
 				data:{lesson_id:lesson_id,student_id:student_id,teacher_id:teacher_id,status_id:status_id,reason:reason,classes_id:classes_id},
 		  		success:function(){
-				var test = $(this).parent("td").next().find("p").val();
-				alert(test);
+					test.text(status_name);
 				}
 			});
 		});
@@ -150,8 +150,9 @@
 			}
 			var name_list=" ";
 			for(var i = 0;i < name_length;i++){
-				name_list = name_list + name[i] +"  ";
+				name_list = name_list + name[i] +"——"+name[i]+"——";
 			}
+			console.log(name_list);
 			play(name_list);
 		});
 		

@@ -25,7 +25,8 @@ public class ClassesController extends BaseController{
 	public String list(int lessonid,ModelMap modelMap){
 		List<Classes> classesGroup = classesService.getClassesGroupByLesson(lessonid);
 		modelMap.put("classesGroup",classesGroup);
-		return "teacher/listClasses";
+		modelMap.put("lessonid",lessonid);
+		return "teacher/listLessonClass";
 	}
 	
 	@RequestMapping("addLessonClass")
@@ -38,7 +39,15 @@ public class ClassesController extends BaseController{
 		int lesson_id= ServletRequestUtils.getIntParameter(request, "lessonid");
 		int classes_id= ServletRequestUtils.getIntParameter(request, "classes_id");
 		classesService.insertLessonClasses(classes_id, lesson_id);
-		return"teacher/listClasses";
+		return"teacher/listLessonClass";
+	}
+	
+	@RequestMapping("delLessonClass")
+	public String delLessonClass(HttpServletRequest request) throws ServletRequestBindingException{
+		int classes_id= ServletRequestUtils.getIntParameter(request, "classesid");
+		int lesson_id= ServletRequestUtils.getIntParameter(request, "lessonid");
+		classesService.delLessonClasses(classes_id, lesson_id);
+		return ("redirect:/classes/list?lessonid="+lesson_id+"");
 	}
 	
 }

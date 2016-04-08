@@ -20,4 +20,6 @@ public interface ClassesService {
 	
 	public boolean insertLessonClasses(int classes_id,int lesson_id);
 	
+	public boolean delLessonClasses(int classes_id,int lesson_id);
+	
 }

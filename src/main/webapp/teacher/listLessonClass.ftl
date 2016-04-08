@@ -8,6 +8,7 @@
                 <tr>
                   <th>班级编号</th>
                   <th>班级名</th>
+                  <th>操作</th>
                 </tr>
               </thead>
               <tbody>
@@ -15,6 +16,7 @@
 				<tr>
 					<td>${classes.id}</td>
 					<td><a href="../student/list?classid=${classes.id}">${classes.name}</a></td>
+					<td><a href="../classes/delLessonClass?classesid=${classes.id}&lessonid=${lessonid}">删除</a></td>
 				</tr>
 				</#list>
               </tbody>

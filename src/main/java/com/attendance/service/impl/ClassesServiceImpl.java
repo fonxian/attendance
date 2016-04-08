@@ -49,7 +49,13 @@ public class ClassesServiceImpl implements ClassesService{
 	@Override
 	public boolean insertLessonClasses(int classes_id, int lesson_id) {
 		classesMapper.insertLessonClasses(classes_id, lesson_id);
-		return false;
+		return true;
+	}
+
+	@Override
+	public boolean delLessonClasses(int classes_id, int lesson_id) {
+		classesMapper.delLessonClasses(classes_id, lesson_id);
+		return true;
 	}
 
 }
