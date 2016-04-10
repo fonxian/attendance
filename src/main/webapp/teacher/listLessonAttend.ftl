@@ -22,16 +22,16 @@
 				<td class="name">${student.name}</td>
 				<td>${student.classes_id}</td>
 				<td>
-					<label >${student.normal}</label> 
+					<label ><a href="../attend/studentAttend?lesson_id=1&student_id=${student.student_id}&status_id=1">${student.normal}</a></label> 
 				</td>
 				<td>
-					<label  >${student.absent}</label> 
+					<label><a href="../attend/studentAttend?lesson_id=1&student_id=${student.student_id}&status_id=2">${student.absent}</a></label> 
 				</td>
 				<td>
-					<label>${student.leave}</label>
+					<label><a href="../attend/studentAttend?lesson_id=1&student_id=${student.student_id}&status_id=3">${student.leave}</a></label>
 				</td>
 					<td>
-					<label>${student.late}</label>
+					<label><a href="../attend/studentAttend?lesson_id=1&student_id=${student.student_id}&status_id=4">${student.late}</a></label>
 				</td>
 	
 			</tr>

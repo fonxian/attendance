@@ -12,4 +12,6 @@ public interface LessonService {
 	
 	public ArrayList<Lesson> getGroupByTeacher(int teacherId);
 	
+	public ArrayList<Lesson> getGroup();
+	
 }

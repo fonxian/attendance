@@ -25,7 +25,7 @@ public class AttendServiceImpl implements AttendService{
 	public boolean setStudentAttend(Attend attend) {
 		attend.setDate(new Date());
 		attendMapper.insert(attend);
-		return false;
+		return true;
 	}
 
 	@Override
@@ -43,6 +43,30 @@ public class AttendServiceImpl implements AttendService{
 			attendTemp.add(temp);
 		}
 		return attendTemp;
+	}
+
+	@Override
+	public ArrayList<Attend> getStudentAttend(int student_id, int lesson_id, int status_id) {
+		ArrayList<Attend> attend = attendMapper.getStudentAttend(student_id, lesson_id, status_id);
+		return attend;
+	}
+
+	@Override
+	public boolean delStudentAttend(int attend_id) {
+		attendMapper.delStudentAttend(attend_id);
+		return true;
+	}
+
+	@Override
+	public Attend getStudentAttend(int attend_id) {
+		Attend attend = attendMapper.selectByPrimaryKey(attend_id);
+		return attend;
+	}
+
+	@Override
+	public boolean updateAttend(Attend attend) {
+		attendMapper.updateByPrimaryKey(attend);
+		return true;
 	}
 
 }

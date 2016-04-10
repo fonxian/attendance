@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 import com.attendance.dao.TeacherMapper;
 import com.attendance.model.Teacher;
 import com.attendance.service.TeacherService;
+import com.attendance.service.exception.TeacherErrorException;
 
 @Service("teacherService")
-public class TeacherServiceImpl implements TeacherService{
+public class TeacherServiceImpl extends BaseServiceImpl implements TeacherService{
 
 	@Autowired
 	private TeacherMapper teacherMapper;
@@ -38,9 +39,11 @@ public class TeacherServiceImpl implements TeacherService{
 	}
 
 	@Override
-	public Teacher loginTeacher(String username, String password) {
+	public Teacher loginTeacher(String username, String password) throws TeacherErrorException {
 		Teacher teacher = teacherMapper.selectByUserName(username);
 		if(teacher!=null&&teacher.getPassword().equals(password)){
+			setTeacherId(teacher.getId());
+			initCache();
 			return teacher;
 		}
 		return null;

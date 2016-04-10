@@ -1,6 +1,7 @@
 package com.attendance.service;
 
 import com.attendance.model.Teacher;
+import com.attendance.service.exception.TeacherErrorException;
 
 
 public interface TeacherService {
@@ -13,7 +14,7 @@ public interface TeacherService {
 	
 	public Teacher getTeacherById(int id);
 	
-	public Teacher loginTeacher(String username,String password);
+	public Teacher loginTeacher(String username,String password) throws TeacherErrorException;
 	
 	
 }

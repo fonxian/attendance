@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.attendance.model.Teacher;
 import com.attendance.service.TeacherService;
+import com.attendance.service.exception.TeacherErrorException;
 import com.attendance.util.MD5Utils;
 
 @Controller
@@ -27,7 +28,7 @@ public class TeacherController extends BaseController{
 	}
 	
 	@RequestMapping("/login")
-	public  String login(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) {
+	public  String login(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws TeacherErrorException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		password = MD5Utils.md5(password).toLowerCase();

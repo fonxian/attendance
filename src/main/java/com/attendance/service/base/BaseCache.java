@@ -38,12 +38,10 @@ public class BaseCache {
 	/**
 	 * 初始化缓存
 	 */
-	public void initCache(Integer teacherId, Teacher teacher,ArrayList<Lesson> lessonGroup,ArrayList<Student> studentGroup) {
+	public void initCache(Integer teacherId, Teacher teacher,ArrayList<Lesson> lessonGroup) {
 		if (!teacherCache.containsKey(teacherId)) {
 			teacherCache.put(teacherId, teacher);
 			lessonCache.put(teacherId, lessonGroup);
-			initLessonMap(teacherId);
-			initStudentMap(teacherId);
 		}
 	}
 
@@ -58,12 +56,30 @@ public class BaseCache {
 	}
 	
 	/**
+	 * 获取Teacher
+	 */
+	public Teacher getTeacher(Integer teacherId){
+		if(teacherCache.containsKey(teacherId)){
+			return teacherCache.get(teacherId);
+		}
+		return null;
+	}
+	
+	/**
+	 * 获取Teacher所教的课程列表
+	 */
+	public ArrayList<Lesson> getLessonGroup(Integer teacherId){
+		if(lessonCache.containsKey(teacherId)){
+			return lessonCache.get(teacherId);
+		}
+		return null;
+	}
+	
+	/**
 	 * 移除所有缓存
 	 */
 	public void remove(Integer teacherId){
-		teacherCache.remove(teacherId);
-		studentCache.remove(teacherId);
-		lessonCache.remove(teacherId);
+
 	}
 
 	/** ===============初始化课程、学生缓存========================================= **/

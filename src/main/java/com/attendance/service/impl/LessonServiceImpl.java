@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 import com.attendance.dao.LessonMapper;
 import com.attendance.model.Lesson;
 import com.attendance.service.LessonService;
+import com.attendance.service.base.BaseCache;
 
 @Service("lessonService")
-public class LessonServiceImpl implements LessonService{
+public class LessonServiceImpl extends BaseServiceImpl implements LessonService{
 
 	@Autowired
 	private LessonMapper lessonMapper;
@@ -29,7 +30,13 @@ public class LessonServiceImpl implements LessonService{
 
 	@Override
 	public ArrayList<Lesson> getGroupByTeacher(int teacherId) {
-		ArrayList<Lesson> lessonGroup = lessonMapper.getAllLesson(teacherId);
+		ArrayList<Lesson> lessonGroup =BaseCache.getInstance().getLessonGroup(teacherId);
+		return lessonGroup;
+	}
+
+	@Override
+	public ArrayList<Lesson> getGroup() {
+		ArrayList<Lesson> lessonGroup = lessonMapper.getLessonGroup();
 		return lessonGroup;
 	}
 
