@@ -76,6 +76,38 @@ public class BaseCache {
 	}
 	
 	/**
+	 * 移除Lesson
+	 */
+	public boolean removeLesson(Integer teacherId,Integer lessonId){
+		if(lessonCache.containsKey(teacherId)){
+			ArrayList<Lesson> lessonGroup = lessonCache.get(teacherId);
+			for(Lesson lesson:lessonGroup){
+				if(lesson.getId()==lessonId)
+					lessonGroup.remove(lesson);
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * 添加Lesson
+	 */
+	public boolean addLesson(Integer teacherId,Lesson lesson){
+		if(lessonCache.containsKey(teacherId)){
+			lessonCache.get(teacherId).add(lesson);
+			ArrayList<Lesson> lessonGroup = lessonCache.get(teacherId);
+			System.out.println("---------");
+			for(Lesson lesson1:lessonGroup){
+				
+				System.out.println(lesson1.getName());
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * 移除所有缓存
 	 */
 	public void remove(Integer teacherId){

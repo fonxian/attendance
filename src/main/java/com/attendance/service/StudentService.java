@@ -20,5 +20,7 @@ public interface StudentService {
 	
 	public ArrayList<Student> getAllStudentGroup();
 	
+	public boolean excelImport(String path);
+	
 	
 }

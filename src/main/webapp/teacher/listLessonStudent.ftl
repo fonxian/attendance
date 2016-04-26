@@ -2,9 +2,9 @@
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  		<h1 class="page-header">课程列表</h1>
- 		<button class="namelist">全部点名</button>
- 		<button class="stop">暂停</button>
- 		<button class="start">继续</button>
+ 		<button class="btn btn-primary btn-sm" id="namelist">全部点名</button>
+ 		<button class="btn btn-primary btn-sm" id="stop">暂停</button>
+ 		<button class="btn btn-primary btn-sm" id="start">继续</button>
    		<div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -126,12 +126,12 @@
 		});
 		
 		//继续
-		$(".start").click(function(){
+		$("#start").click(function(){
 			start();
 		});
 		
 		//暂停
-		$(".stop").click(function(){
+		$("#stop").click(function(){
 			stop();
 		});
 			
@@ -142,7 +142,7 @@
 		});
 		
 		//姓名列表朗读
-		$(".namelist").click(function(){
+		$("#namelist").click(function(){
 		var name_length = $(".name").length;
 			var name = new Array(name_length);
 			for(var i = 0;i < name_length;i++){

@@ -15,7 +15,6 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.attendance.dao.AttendMapper;
 import com.attendance.model.Attend;
 import com.attendance.model.AttendTemp;
 import com.attendance.service.AttendService;
@@ -23,7 +22,7 @@ import com.attendance.service.StudentService;
 import com.attendance.util.Result;
 
 @Controller
-@RequestMapping("/attend")
+@RequestMapping(value="/attend")
 public class AttendController extends BaseController{
 
 	@Autowired
@@ -32,7 +31,7 @@ public class AttendController extends BaseController{
 	private StudentService studentService;
 		
 	
-	@RequestMapping("/index")
+	@RequestMapping(value="/index")
 	public String index(){
 		return "redirect:/lesson/attendList";
 	}
@@ -60,7 +59,7 @@ public class AttendController extends BaseController{
 		return result.toString();
 	}
 	
-	@RequestMapping("/listLessonAttend")
+	@RequestMapping(value="/listLessonAttend")
 	public  String lessonAttendList(ModelMap modelMap) {
 		int lessonId = 1;
 		ArrayList<AttendTemp> attendTempGroup= attendService.countLessonAttend(lessonId);
@@ -68,7 +67,7 @@ public class AttendController extends BaseController{
 		return "teacher/listLessonAttend";
 	}
 	
-	@RequestMapping("/studentAttend")
+	@RequestMapping(value="/studentAttend")
 	public  String studentAttend(HttpServletRequest request,ModelMap modelMap) throws ServletRequestBindingException {
 		int lesson_id = ServletRequestUtils.getIntParameter(request, "lesson_id");
 		int student_id= ServletRequestUtils.getIntParameter(request, "student_id");
@@ -78,14 +77,14 @@ public class AttendController extends BaseController{
 		return "teacher/studentAttend";
 	}
 	
-	@RequestMapping("/updateAttend")
+	@RequestMapping(value="/updateAttend")
 	public  String updateAttend(HttpServletRequest request,ModelMap modelMap) throws ServletRequestBindingException {
 		int attend_id = ServletRequestUtils.getIntParameter(request, "attend_id");
 		modelMap.put("attend_id", attend_id);
 		return "teacher/updateAttend";
 	}
 	
-	@RequestMapping("/saveUpdateAttend")
+	@RequestMapping(value="/saveUpdateAttend")
 	public  String saveUpdateAttend(HttpServletRequest request,ModelMap modelMap) throws ServletRequestBindingException {
 		int attend_id = ServletRequestUtils.getIntParameter(request, "attend_id");
 		int status_id =  ServletRequestUtils.getIntParameter(request, "status_id");
@@ -98,7 +97,7 @@ public class AttendController extends BaseController{
 		return "redirect:/attend/listLessonAttend";
 	}
 	
-	@RequestMapping("/delAttend")
+	@RequestMapping(value="/delAttend")
 	public  String delAttend(HttpServletRequest request,ModelMap modelMap) throws ServletRequestBindingException {
 		int attend_id = ServletRequestUtils.getIntParameter(request, "attend_id");
 		attendService.delStudentAttend(attend_id);

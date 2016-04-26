@@ -16,18 +16,18 @@ import com.attendance.service.exception.TeacherErrorException;
 import com.attendance.util.MD5Utils;
 
 @Controller
-@RequestMapping("/teacher")
+@RequestMapping(value="/teacher")
 public class TeacherController extends BaseController{
 
 	@Autowired
 	private TeacherService teacherService;
 	
-	@RequestMapping("/index")
+	@RequestMapping(value="/index")
 	public  String index() {
 			return "teacher/index";
 	}
 	
-	@RequestMapping("/login")
+	@RequestMapping(value="/login")
 	public  String login(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws TeacherErrorException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -42,7 +42,7 @@ public class TeacherController extends BaseController{
 		}
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping(value="/register")
 	public String register(Teacher teacher,ModelMap modelMap){
 		String password =MD5Utils.md5(teacher.getPassword()).toLowerCase();
 		teacher.setPassword(password);
@@ -51,12 +51,12 @@ public class TeacherController extends BaseController{
 		return "registerSuccess";
 	}
 	
-	@RequestMapping("update")
+	@RequestMapping(value="/update")
 	public String update(){
 		return "/teacher/myinfo";
 	}
 	
-	@RequestMapping("saveUpdate")
+	@RequestMapping(value="/saveUpdate")
 	public String saveUpdate(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws ServletRequestBindingException {
 		Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
 		int school_id= ServletRequestUtils.getIntParameter(request, "school_id");

@@ -14,30 +14,30 @@ import com.attendance.model.Teacher;
 import com.attendance.service.LessonService;
 
 @Controller
-@RequestMapping("/lesson")
+@RequestMapping(value="/lesson")
 public class LessonController extends BaseController{
 	
 	@Autowired
 	private LessonService lessonService;
 		
-	@RequestMapping("/add")
+	@RequestMapping(value="/add")
 	public String add(){
 		return "teacher/addLesson";
 	}
 	
-	@RequestMapping("/saveAdd")
+	@RequestMapping(value="/saveAdd")
 	public String saveAdd(Lesson lesson){
 		lessonService.add(lesson);
 		return "redirect:/lesson/list";
 	}
 	
-	@RequestMapping("/del")
+	@RequestMapping(value="/del")
 	public String delete(int lessonid){
 		lessonService.del(lessonid);
 		return "redirect:/lesson/list";
 	}
 	
-	@RequestMapping("attendList")
+	@RequestMapping(value="/attendList")
 	public String attendList(HttpServletRequest request,ModelMap modelMap){
 		Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
 		List<Lesson> lessonGroup = lessonService.getGroupByTeacher(teacher.getId());
@@ -45,10 +45,13 @@ public class LessonController extends BaseController{
 		return "teacher/listAttendLesson";
 	}
 	
-	@RequestMapping("/list")
+	@RequestMapping(value="/list")
 	public String list(HttpServletRequest request,ModelMap modelMap){
 		Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
 		List<Lesson> lessonGroup = lessonService.getGroupByTeacher(teacher.getId());
+		for(Lesson lesson:lessonGroup){
+			System.out.println(lesson.getName());
+		}
 		modelMap.put("lessonGroup", lessonGroup);
 		return "teacher/manageLesson";
 	}

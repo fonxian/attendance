@@ -6,7 +6,7 @@ import com.attendance.model.Classes;
 
 public interface ClassesService {
 	
-	public boolean insert(String classname,String teacherid,int studentnum);
+	public boolean insert(Classes classes);
 	
 	public boolean update(Classes classes);
 	

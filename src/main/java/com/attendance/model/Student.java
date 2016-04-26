@@ -50,4 +50,18 @@ public class Student {
     public void setSex(Integer sex) {
         this.sex = sex;
     }
+
+	public Student(Integer id, String name, Integer school_id,
+			Integer classes_id, Integer sex) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.school_id = school_id;
+		this.classes_id = classes_id;
+		this.sex = sex;
+	}
+	
+	public Student(){}
+    
+    
 }

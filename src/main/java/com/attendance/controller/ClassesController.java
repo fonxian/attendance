@@ -15,13 +15,13 @@ import com.attendance.model.Classes;
 import com.attendance.service.ClassesService;
 
 @Controller
-@RequestMapping("/classes")
+@RequestMapping(value="/classes")
 public class ClassesController extends BaseController{
 
 	@Autowired
 	private ClassesService classesService;
 	
-	@RequestMapping("/list")
+	@RequestMapping(value="/list")
 	public String list(int lessonid,ModelMap modelMap){
 		List<Classes> classesGroup = classesService.getClassesGroupByLesson(lessonid);
 		modelMap.put("classesGroup",classesGroup);
@@ -29,12 +29,23 @@ public class ClassesController extends BaseController{
 		return "teacher/listLessonClass";
 	}
 	
-	@RequestMapping("addLessonClass")
+	@RequestMapping(value="/addClass")
+	public String addClass(){
+		return "teacher/addClass";
+	}
+	
+	@RequestMapping(value="/saveClass")
+	public String saveClass(Classes classes) {
+		classesService.insert(classes);
+		return"teacher/listLessonClass";
+	}
+	
+	@RequestMapping(value="/addLessonClass")
 	public String addLessonClass(){
 		return "teacher/addLessonClass";
 	}
 	
-	@RequestMapping("saveLessonClass")
+	@RequestMapping(value="/saveLessonClass")
 	public String saveLessonClass(HttpServletRequest request) throws ServletRequestBindingException{
 		int lesson_id= ServletRequestUtils.getIntParameter(request, "lessonid");
 		int classes_id= ServletRequestUtils.getIntParameter(request, "classes_id");
@@ -42,7 +53,7 @@ public class ClassesController extends BaseController{
 		return"teacher/listLessonClass";
 	}
 	
-	@RequestMapping("delLessonClass")
+	@RequestMapping(value="/delLessonClass")
 	public String delLessonClass(HttpServletRequest request) throws ServletRequestBindingException{
 		int classes_id= ServletRequestUtils.getIntParameter(request, "classesid");
 		int lesson_id= ServletRequestUtils.getIntParameter(request, "lessonid");

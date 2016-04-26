@@ -1,6 +1,5 @@
 package com.attendance.service.impl;
 
-
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import com.attendance.service.base.ErrorCode;
 import com.attendance.service.exception.TeacherErrorException;
 
 public abstract class BaseServiceImpl {
-	
+
 	private int teacherid;
 	@Autowired
 	private ClassesMapper classesMapper;
@@ -26,11 +25,11 @@ public abstract class BaseServiceImpl {
 	private StudentMapper studentMapper;
 	@Autowired
 	private TeacherMapper teacherMapper;
-	
+
 	/**
 	 * 获取当前登录教师的Id
 	 */
-	
+
 	protected int getTeacherId() {
 		return teacherid;
 	}
@@ -42,16 +41,36 @@ public abstract class BaseServiceImpl {
 	/**
 	 * 初始化缓存
 	 */
-	protected void initCache() throws TeacherErrorException{
-		if(!BaseCache.getInstance().checkCache(getTeacherId())) {
+	protected void initCache() throws TeacherErrorException {
+		if (!BaseCache.getInstance().checkCache(getTeacherId())) {
 			Teacher teacher = teacherMapper.selectByPrimaryKey(getTeacherId());
-			ArrayList<Lesson> lessonGroup =lessonMapper.getAllLesson(getTeacherId());
+			ArrayList<Lesson> lessonGroup = lessonMapper
+					.getAllLesson(getTeacherId());
 			if (teacher != null && teacher.getId() != 0l) {
-				BaseCache.getInstance().initCache(getTeacherId(), teacher,lessonGroup);
+				BaseCache.getInstance().initCache(getTeacherId(), teacher,
+						lessonGroup);
 			} else {
-				throw new TeacherErrorException(ErrorCode.DATA_LOAD_ERR, "data loading error");
+				throw new TeacherErrorException(ErrorCode.DATA_LOAD_ERR,"data loading error");
 			}
 		}
 	}
+
+	/**
+	 * 删除课程
+	 */
+	protected void removeLesson(int lessonId) {
+		if (!BaseCache.getInstance().checkCache(getTeacherId())) {
+			BaseCache.getInstance().removeLesson(getTeacherId(), lessonId);
+		}
+	}
 	
+	/**
+	 * 添加课程
+	 */
+	protected void addLesson(Lesson lesson) {
+		if (!BaseCache.getInstance().checkCache(getTeacherId())) {
+			BaseCache.getInstance().addLesson(getTeacherId(), lesson);
+		}
+	}
+
 }

@@ -15,10 +15,6 @@ public class ClassesServiceImpl implements ClassesService{
 	@Autowired
 	private ClassesMapper classesMapper;
 
-	@Override
-	public boolean insert(String classname, String teacherid, int studentnum) {
-		return false;
-	}
 
 	@Override
 	public boolean update(Classes classes) {
@@ -55,6 +51,12 @@ public class ClassesServiceImpl implements ClassesService{
 	@Override
 	public boolean delLessonClasses(int classes_id, int lesson_id) {
 		classesMapper.delLessonClasses(classes_id, lesson_id);
+		return true;
+	}
+
+	@Override
+	public boolean insert(Classes classes) {
+		classesMapper.insert(classes);
 		return true;
 	}
 

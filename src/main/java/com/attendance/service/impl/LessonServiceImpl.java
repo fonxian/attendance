@@ -18,12 +18,14 @@ public class LessonServiceImpl extends BaseServiceImpl implements LessonService{
 	
 	@Override
 	public boolean add(Lesson lesson) {
+		addLesson(lesson);
 		lessonMapper.insert(lesson);
 		return true;
 	}
 
 	@Override
 	public boolean del(int lessonid) {
+		removeLesson(lessonid);
 		lessonMapper.deleteByPrimaryKey(lessonid);
 		return true;
 	}

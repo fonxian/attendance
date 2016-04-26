@@ -1,7 +1,8 @@
 <#include "../BaseControl.ftl" encoding="utf-8">
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  <h1 class="page-header">上课班级列表</h1>
- <h4><a href="../classes/addLessonClass">添加上课班级</a></h4>
+<button type="button"class="btn btn-primary btn-sm"> <a href="../classes/addLessonClass"><font color=“#FFFFFF”>添加上课班级</font></a></button>
+
    <div class="table-responsive">
             <table class="table table-striped">
               <thead>
