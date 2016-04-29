@@ -1,10 +1,14 @@
 <#include "../BaseControl.ftl" encoding="utf-8">
 
- <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
- <h1 class="page-header">课程管理</h1>
- <button type="button"class="btn btn-primary btn-sm"> <a href="../lesson/add"><font color=“#FFFFFF”>添加课程</font></a></button>
-   <div class="table-responsive">
-            <table class="table table-striped">
+<script type="text/jsx">
+    var LessonModel = React.createClass({
+        render: function(){
+            return(
+                 <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+ <h1 className="page-header">课程管理</h1>
+ <button type="button"className="btn btn-primary btn-sm"> <a href="../lesson/add">添加课程</a></button>
+   <div className="table-responsive">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th>课程编号</th>
@@ -15,16 +19,28 @@
               </thead>
               <tbody>
               <#list lessonGroup as lesson>
-				<tr>
-					<td>${lesson.id}</td>
-					<td><a href="../classes/list?lessonid=${lesson.id}">${lesson.name}</a></td>
-					<td>${lesson.teacher_id}</td>
-					<td><a href="../lesson/del?lessonid=${lesson.id}">删除</a></td>
-				</tr>
-				</#list>
+        <tr>
+          <td>${lesson.id}</td>
+          <td><a href="../classes/list?lessonid=${lesson.id}">${lesson.name}</a></td>
+          <td>${lesson.teacher_id}</td>
+          <td><a href="../lesson/del?lessonid=${lesson.id}">删除</a></td>
+        </tr>
+        </#list>
               </tbody>
             </table>
           </div>
   </div>
-</body>
-</html>
+              );
+            }
+
+        });
+
+    React.render(
+        <div className="row">
+         <MenuModel/>
+         <LessonModel/>
+        </div>
+        ,document.getElementById('main')
+    );
+
+</script>

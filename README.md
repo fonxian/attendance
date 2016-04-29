@@ -19,7 +19,7 @@
 - 核心框架：Spring Framework 4
 - 视图框架：Spring MVC 4
 - 持久层框架MyBatis 3
-- 前端：freemarker、jquery、bootstrap
+- 前端：React、Freemarker、Bootstrap
 - 语音朗读：讯飞TTS（在线语音合成）
 - 项目管理工具：Maven
 
