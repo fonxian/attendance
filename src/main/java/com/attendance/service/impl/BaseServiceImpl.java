@@ -13,10 +13,17 @@ import com.attendance.model.Teacher;
 import com.attendance.service.base.BaseCache;
 import com.attendance.service.base.ErrorCode;
 import com.attendance.service.exception.TeacherErrorException;
-
+/**
+ * 基础业务层抽象类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：2016-04-29<br/>
+ */
 public abstract class BaseServiceImpl {
 
-	private int teacherid;
+	private static int teacherid;
 	@Autowired
 	private ClassesMapper classesMapper;
 	@Autowired
@@ -59,7 +66,10 @@ public abstract class BaseServiceImpl {
 	 * 删除课程
 	 */
 	protected void removeLesson(int lessonId) {
-		if (!BaseCache.getInstance().checkCache(getTeacherId())) {
+		int teacherid = getTeacherId();
+		System.out.println(teacherid);
+		System.out.println(getTeacherId());
+		if (BaseCache.getInstance().checkCache(getTeacherId())) {
 			BaseCache.getInstance().removeLesson(getTeacherId(), lessonId);
 		}
 	}

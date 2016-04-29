@@ -8,7 +8,14 @@ import com.attendance.model.Classes;
 import com.attendance.model.Lesson;
 import com.attendance.model.Student;
 import com.attendance.model.Teacher;
-
+/**
+ * 缓存类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：2016-04-29<br/>
+ */
 public class BaseCache {
 
 	private static BaseCache instance;
@@ -81,9 +88,13 @@ public class BaseCache {
 	public boolean removeLesson(Integer teacherId,Integer lessonId){
 		if(lessonCache.containsKey(teacherId)){
 			ArrayList<Lesson> lessonGroup = lessonCache.get(teacherId);
+			Lesson removeLesson = null; 
 			for(Lesson lesson:lessonGroup){
 				if(lesson.getId()==lessonId)
-					lessonGroup.remove(lesson);
+					removeLesson = lesson;
+			}
+			if(removeLesson != null){
+				lessonGroup.remove(removeLesson);
 			}
 			return true;
 		}

@@ -1,6 +1,6 @@
 package com.attendance.model;
 
-public class Status {
+public class Status  {
     private Integer id;
 
     private String name;

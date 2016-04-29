@@ -9,6 +9,14 @@ import com.attendance.dao.ClassesMapper;
 import com.attendance.model.Classes;
 import com.attendance.service.ClassesService;
 
+/**
+ * 班级管理业务层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：2016-04-29<br/>
+ */
 @Service("classesService")
 public class ClassesServiceImpl implements ClassesService{
 	

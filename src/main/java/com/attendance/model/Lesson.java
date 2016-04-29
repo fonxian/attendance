@@ -1,6 +1,6 @@
 package com.attendance.model;
 
-public class Lesson {
+public class Lesson  {
     private Integer id;
 
     private String name;

@@ -3,6 +3,7 @@ package com.attendance.model;
 import java.util.Date;
 
 public class Attend {
+	
     private Integer id;
 
     private Integer lesson_id;

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.attendance.dao.TeacherMapper" >
+
+	<!-- 字段绑定 开始 -->
   <resultMap id="BaseResultMap" type="com.attendance.model.Teacher" >
     <id column="Id" property="id" jdbcType="INTEGER" />
     <result column="realname" property="realname" jdbcType="VARCHAR" />
@@ -10,6 +12,8 @@
     <result column="school_id" property="school_id" jdbcType="INTEGER" />
     <result column="sex" property="sex" jdbcType="INTEGER" />
   </resultMap>
+    <!-- 字段绑定结束 -->
+  
   <sql id="Base_Column_List" >
     Id, realname, username, password, tel, school_id, sex
   </sql>

@@ -10,6 +10,14 @@ import com.attendance.model.Lesson;
 import com.attendance.service.LessonService;
 import com.attendance.service.base.BaseCache;
 
+/**
+ * 课程管理业务层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Service("lessonService")
 public class LessonServiceImpl extends BaseServiceImpl implements LessonService{
 

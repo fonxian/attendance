@@ -11,6 +11,14 @@ import com.attendance.model.Student;
 import com.attendance.service.StudentService;
 import com.attendance.util.ExcelImport;
 
+/**
+ * 学生管理业务层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Service("studentService")
 public class StudentServiceImpl implements StudentService {
 
