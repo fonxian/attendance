@@ -4,7 +4,7 @@ import com.attendance.model.Teacher;
 import com.attendance.service.exception.TeacherErrorException;
 
 /**
- * 老师管理业务层接口
+ * 教师管理业务层接口
  * @author fonxian
  * @version 
  * 版本号：100-000-000<br/>

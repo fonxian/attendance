@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta charset="UTF-8">
         <script src="${rc.contextPath}/common/js/react.js"></script>
         <script src="${rc.contextPath}/common/js/JSXTransformer.js"></script>
-	     	<link href="${rc.contextPath}/common/css/bootstrap.css" rel="stylesheet">
-		    <link href="${rc.contextPath}/common/css/bootstrap.min.css" rel="stylesheet">
-	    	<link href="${rc.contextPath}/common/css/dashboard.css" rel="stylesheet">
+        <link href="${rc.contextPath}/common/css/bootstrap.css" rel="stylesheet">
+        <link href="${rc.contextPath}/common/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${rc.contextPath}/common/css/dashboard.css" rel="stylesheet">
         <script src="${rc.contextPath}/common/js/bootstrap.min.js"></script>
         <script src="${rc.contextPath}/common/js/jquery-1.12.2.js"></script>
         <script src="${rc.contextPath}/common/js/bootstrap.js"></script>
-		    <script type="text/jsx">
+        <script type="text/jsx">
 
           var NavModel1 = React.createClass({
 
@@ -30,13 +30,13 @@
 
         });
 
-        	var Input =  React.createClass({
-   				 render: function () {
-       				 return (
-          			  <input type="text" className="form-control" placeholder="查找"/>
-        		   );
-   			    }
-	     });
+          var Input =  React.createClass({
+           render: function () {
+               return (
+                  <input type="text" className="form-control" placeholder="查找"/>
+               );
+            }
+       });
 
         var NavModel2 = React.createClass({
           render:function(){
@@ -47,9 +47,9 @@
                   <li><a href="#">设置</a></li>
                   <li><a href="#">帮助</a></li>
                 </ul>
-				        <form className="navbar-form navbar-right">
-             			<Input/>
-          		  </form>
+                <form className="navbar-form navbar-right">
+                  <Input/>
+                </form>
               </div>
             );
           }
@@ -67,7 +67,7 @@
         });
 
         React.render(
-       			<NavModel/>
+            <NavModel/>
             ,document.getElementById('nav')
         );
 
@@ -103,4 +103,3 @@
 
 </body>
 </html>
-

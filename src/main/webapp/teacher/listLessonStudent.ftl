@@ -1,47 +1,8 @@
 <#include "../BaseControl.ftl" encoding="utf-8">
-	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
- 		<h1 class="page-header">课程列表</h1>
- 		<button class="btn btn-primary btn-sm" id="namelist">全部点名</button>
- 		<button class="btn btn-primary btn-sm" id="stop">暂停</button>
- 		<button class="btn btn-primary btn-sm" id="start">继续</button>
-   		<div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>学号</th>
-			      <th>姓名</th>
-			      <th>班级编号</th>
-			      <th>考勤操作</th>
-			      <th>考勤情况 | 事由</th>
-                </tr>
-              </thead>
-              <tbody>
-          <#list lessonStudentGroup as student>
-			<tr>
-				<td>${student.id}</td>
-				<td class="name">${student.name}</td>
-				<td>${student.classes_id}</td>
-				<td>
-					<button class="attend" name="1">正常</button> |
-					<button class="attend"  name="2">缺勤</button> |
-					<button  class="attend" name="3">请假</button> |
-					<button class="attend"  name = "4">迟到</button>
-				</td>
-				<td><label class="solution">未点名</label> | <input name="result"/></td>
-			</tr>
-           </#list>
-              </tbody>
-            </table>
-          </div>
-	</div>
- <script src="http://blog.faultylabs.com/files/md5.js"></script>
-<script src="http://webapi.openspeech.cn/socket.io/socket.io.js"></script>
-<script src='http://webapi.openspeech.cn/fingerprint.js'></script>
-<script src="http://webapi.openspeech.cn/tts.min.js"></script>
-<script type="text/javascript">
-	//tts
-		    /**
+<script type="text/jsx">
+
+//tts
+		/**
 		  * 初始化Session对象
 		  */
 	    var session = new IFlyTtsSession({
@@ -101,64 +62,163 @@
 			}
 		};
 		//tts结束
-	
-	
-	$(document).ready(function(){
-	
-		//点名记录
-		$(".attend").click(function(){
-			var lesson_id = 1;
-			var student_id = $(this).parent("td").prevAll('td').eq(2).text();
-			var teacher_id = ${teacher.id}
-			var reason =$(this).parent("td").next().find("input").val();
-			var classes_id=$(this).parent("td").prevAll('td').eq(0).text();
-			var test = $(this).parent("td").next("td").find("label");
-			var status_id = $(this).attr("name");
-			var status_name = $(this).text();
-			$.ajax({
-				type:"POST",
-				url : "${rc.contextPath}/attend/add",
-				data:{lesson_id:lesson_id,student_id:student_id,teacher_id:teacher_id,status_id:status_id,reason:reason,classes_id:classes_id},
-		  		success:function(){
-					test.text(status_name);
-				}
-			});
-		});
-		
-		//继续
-		$("#start").click(function(){
-			start();
-		});
-		
-		//暂停
-		$("#stop").click(function(){
-			stop();
-		});
-			
-		//姓名朗读
-		$(".name").click(function(){
-			var name =$(this).text();
-		    play(name);
-		});
-		
-		//姓名列表朗读
-		$("#namelist").click(function(){
-		var name_length = $(".name").length;
-			var name = new Array(name_length);
-			for(var i = 0;i < name_length;i++){
-				name[i] = $(".name").eq(i).text();
-			}
-			var name_list=" ";
-			for(var i = 0;i < name_length;i++){
-				name_list = name_list + name[i] +"——"+name[i]+"——";
-			}
-			console.log(name_list);
-			play(name_list);
-		});
-		
-	});
-		
-		</script>
-	
-  </body>
-</html>
+
+	//全部点名
+	var StartAllButton = React.createClass({
+
+    render: function () {
+        return (
+            <button className="btn btn-primary btn-sm" onClick={this.handleClick}>全部点名</button>
+        )
+    },
+
+    handleClick: function (event) {
+    	var name_length = $(".name").length;
+            var name = new Array(name_length);
+            for(var i = 0;i < name_length;i++){
+                name[i] = $(".name").eq(i).text();
+            }
+            var name_list=" ";
+            for(var i = 0;i < name_length;i++){
+                name_list = name_list + name[i] +"——"+name[i]+"——";
+            }
+            console.log(name_list);
+            play(name_list);
+    }
+});
+
+	//暂停点名
+	var StopButton = React.createClass({
+
+    render: function () {
+        return (
+            <button className="btn btn-primary btn-sm" onClick={this.handleClick}>暂停点名</button>
+        )
+    },
+
+    handleClick: function (event) {
+    	stop();
+    }
+});
+
+	//继续点名
+	var StartButton = React.createClass({
+    render: function () {
+        return (
+            <button className="btn btn-primary btn-sm" onClick={this.handleClick}>继续点名</button>
+        )
+    },
+
+    handleClick: function (event) {
+   	   start();
+    }
+});
+
+var Component1 = React.createClass({
+	render:function(){
+		return (
+			<tr>
+			<td>{this.props.id}</td>
+			<td className="name" onClick={this.handleClick} >{this.props.name}</td>
+			<td>{this.props.classid}</td>
+			<td>
+				<button className="attend" ref="attend" onClick={this.attendClick} name="1">正常</button> |
+				<button className="attend"  ref="attend" onClick={this.attendClick} name="2">缺勤</button> |
+				<button  className="attend" ref="attend" onClick={this.attendClick} name="3">请假</button> |
+				<button className="attend"  ref="attend" onClick={this.attendClick} name = "4">迟到</button>
+			</td>
+			<td><label ref= "solution" className="solution">未点名</label> | <input ref="result" className="result" name="result"/></td>
+			</tr>
+		);
+	},
+	handleClick: function (e) {
+            play(this.props.name);
+    },
+    attendClick: function(e){
+    		var lesson_id = 1;
+			var student_id = this.props.id;
+			var teacher_id = this.props.teacherid;
+			var classes_id=this.props.classid;
+			var reason =this.refs.result.getDOMNode().value;
+			var test =this.refs.solution.getDOMNode().test;
+			var status_id = this.name;
+			var status_name = this.props;
+			console.log(this.button);
+
+			//$.ajax({
+			//	type:"POST",
+			//	url : "${rc.contextPath}/attend/add",
+			//	data:{lesson_id:lesson_id,student_id:student_id,teacher_id:teacher_id,status_id:status_id,reason:reason,classes_id:classes_id},
+		  	//	success:function(){
+			//		test.text(status_name);
+			//	}
+			//});
+    }
+});
+
+var Component2 = React.createClass({
+	render:function(){
+		return (
+			 <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>学号</th>
+			      <th>姓名</th>
+			      <th>班级编号</th>
+			      <th>考勤操作</th>
+			      <th>考勤情况 | 事由</th>
+                </tr>
+              </thead>
+              <tbody>
+               	<#list lessonStudentGroup as student>
+               		<Component1 id="${student.id}" name="${student.name}" teacherid="${teacher.id}"classid="${student.classes_id}"/>
+               	</#list>
+              </tbody>
+            </table>
+		);
+	}
+});
+
+
+var LessonStudentModel = React.createClass({
+        render: function(){
+            return(
+                <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+             		<div id = "button"></div>
+   					<div id="datalist"className="table-responsive"></div>
+			 	</div>
+              );
+            }
+
+        });
+
+    React.render(
+        <div className="row">
+         <MenuModel/>
+         <LessonStudentModel/>
+        </div>
+        ,document.getElementById('main')
+    );
+
+    React.render(
+        <div>
+         <StartAllButton/>
+         <StopButton/>
+         <StartButton/>
+        </div>
+        ,document.getElementById('button')
+    );
+
+    React.render(
+         <Component2/>
+        ,document.getElementById('datalist')
+    );
+
+</script>
+
+
+<script src="http://blog.faultylabs.com/files/md5.js"></script>
+<script src="http://webapi.openspeech.cn/socket.io/socket.io.js"></script>
+<script src='http://webapi.openspeech.cn/fingerprint.js'></script>
+<script src="http://webapi.openspeech.cn/tts.min.js"></script>
+

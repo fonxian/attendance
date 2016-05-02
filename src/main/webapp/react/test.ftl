@@ -18,30 +18,29 @@
     </style>
 </head>
 <body>
-<div id="a">123</div>
+<div id = "a"></div>
 <script type="text/jsx">
-	 var Component1 = React.createClass({
-        render: function() {
-            return <p> {this.props.abc, this.props.name} </p>;
-        }
-    });
-    var Component2 = React.createClass({
-        render: function() {
-            return (
-                    <div className="commentList" onClick={this.handleClick}>
-                        <Component1 abc="你好！" name="张三" />
-                        <Component1 abc="Hi！" name="李四" />
-                    </div>
-            );
-        },
-        handleClick: function (e) {
-            console.log(this.props.name, e.target);
-        }
-    });
-    React.render(
-        <Component2 name="我是Component2的name哦！" />,
-        document.getElementById('a')
-    );
+
+	var ColorButton = React.createClass({
+    getInitialState: function () {
+        return {name: 'button'};
+    },
+    render: function () {
+        return (
+            <button onClick={this.handleClick}>click</button>
+        )
+    },
+    handleClick: function (event) {
+        console.log(this.state);
+        console.log(event.target);
+    }
+});
+
+React.render(
+    <ColorButton />,
+   document.getElementById('a')
+);
+
 </script>
 </body>
 </html>

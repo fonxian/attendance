@@ -27,6 +27,11 @@ public class TeacherController extends BaseController{
 			return "teacher/index";
 	}
 	
+	@RequestMapping(value="/react")
+	public String react(){
+		return "/react/test";
+	}
+	
 	@RequestMapping(value="/login")
 	public  String login(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws TeacherErrorException {
 		String username = request.getParameter("username");

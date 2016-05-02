@@ -1,9 +1,13 @@
 <#include "../BaseControl.ftl" encoding="utf-8">
 
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">学生考勤情况</h1>
-        <div class="table-responsive">
-            <table class="table table-striped">
+<script type="text/jsx">
+    var StudentAttendModel = React.createClass({
+        render: function(){
+            return(
+                <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 className="page-header">学生考勤情况</h1>
+        <div className="table-responsive">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th>课程编号</th>
@@ -28,5 +32,19 @@
           </div>
     </div>
 
-  </body>
-</html>
+              );
+            }
+
+        });
+
+    React.render(
+        <div className="row">
+              <MenuModel/>
+         	  <StudentAttendModel/>
+        </div>
+        ,document.getElementById('main')
+    );
+
+</script>
+
+
