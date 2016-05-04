@@ -122,7 +122,8 @@ var Component1 = React.createClass({
 			<td className="name" onClick={this.handleClick} >{this.props.name}</td>
 			<td>{this.props.classid}</td>
 			<td>
-				<button className="attend" ref="attend" onClick={this.attendClick} name="1">正常</button> |
+			
+				<button className="attend" ref="attend" onClick={this.attendClick.bind(this, 1)} name="1">正常</button> |
 				<button className="attend"  ref="attend" onClick={this.attendClick} name="2">缺勤</button> |
 				<button  className="attend" ref="attend" onClick={this.attendClick} name="3">请假</button> |
 				<button className="attend"  ref="attend" onClick={this.attendClick} name = "4">迟到</button>
@@ -143,7 +144,7 @@ var Component1 = React.createClass({
 			var test =this.refs.solution.getDOMNode().test;
 			var status_id = this.name;
 			var status_name = this.props;
-			console.log(this.button);
+			console.log("this.name="+this);
 
 			//$.ajax({
 			//	type:"POST",

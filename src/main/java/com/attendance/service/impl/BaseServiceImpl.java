@@ -78,7 +78,7 @@ public abstract class BaseServiceImpl {
 	 * 添加课程
 	 */
 	protected void addLesson(Lesson lesson) {
-		if (!BaseCache.getInstance().checkCache(getTeacherId())) {
+		if (BaseCache.getInstance().checkCache(getTeacherId())) {
 			BaseCache.getInstance().addLesson(getTeacherId(), lesson);
 		}
 	}

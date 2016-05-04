@@ -11,4 +11,9 @@ public class IndexController extends BaseController{
 		return "login";
 	}
 	
+	@RequestMapping(value="/register")
+	public String register(){
+		return "register";
+	}
+	
 }

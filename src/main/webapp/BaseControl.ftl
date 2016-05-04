@@ -30,26 +30,16 @@
 
         });
 
-          var Input =  React.createClass({
-           render: function () {
-               return (
-                  <input type="text" className="form-control" placeholder="查找"/>
-               );
-            }
-       });
 
         var NavModel2 = React.createClass({
           render:function(){
             return(
               <div id="navbar" className="navbar-collapse collapse">
                 <ul className="nav navbar-nav navbar-right">
-                  <li><a href="#">首页</a></li>
-                  <li><a href="#">设置</a></li>
-                  <li><a href="#">帮助</a></li>
+                  <li><a href="../teacher/index">首页</a></li>
+                  <li><a href="../tool/setting">设置</a></li>
+                  <li><a href="../tool/help">帮助</a></li>
                 </ul>
-                <form className="navbar-form navbar-right">
-                  <Input/>
-                </form>
               </div>
             );
           }

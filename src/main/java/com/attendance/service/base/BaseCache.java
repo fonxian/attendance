@@ -2,6 +2,7 @@ package com.attendance.service.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import com.attendance.model.Classes;
@@ -88,14 +89,14 @@ public class BaseCache {
 	 */
 	public boolean removeLesson(Integer teacherId,Integer lessonId){
 		if(lessonCache.containsKey(teacherId)){
-			ArrayList<Lesson> lessonGroup = lessonCache.get(teacherId);
-			Lesson removeLesson = null; 
-			for(Lesson lesson:lessonGroup){
-				if(lesson.getId()==lessonId)
-					removeLesson = lesson;
-			}
-			if(removeLesson != null){
-				lessonGroup.remove(removeLesson);
+			Iterator<Lesson> listIterator = lessonCache.get(teacherId).iterator();
+			while(listIterator.hasNext()){
+				Lesson tempLesson = listIterator.next();
+				System.out.println(tempLesson.getId());
+				if(tempLesson.getId().equals(lessonId)){
+					System.out.println("shanchu");
+					listIterator.remove();
+				}
 			}
 			return true;
 		}
@@ -109,11 +110,6 @@ public class BaseCache {
 		if(lessonCache.containsKey(teacherId)){
 			lessonCache.get(teacherId).add(lesson);
 			ArrayList<Lesson> lessonGroup = lessonCache.get(teacherId);
-			System.out.println("---------");
-			for(Lesson lesson1:lessonGroup){
-				
-				System.out.println(lesson1.getName());
-			}
 			return true;
 		}
 		return false;

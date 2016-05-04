@@ -37,11 +37,13 @@
         </div>
         <button id="login" class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
       </form>
+       <button id="register" class="btn btn-lg btn-primary">注册</button>
     </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="common/js/ie10-viewport-bug-workaround.js"></script>
+          <script src="${rc.contextPath}/common/js/jquery-1.12.2.js"></script>
   </body>
   	<script>
 	$(document).ready(function(){
@@ -57,6 +59,11 @@
 				}
 			});
 		});
+		
+		$("#register").click(function(){
+			window.location.href = 'register';
+		});
+		
 	});
 
 

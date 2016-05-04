@@ -59,7 +59,6 @@ public class StudentController extends BaseController{
 	
 	@RequestMapping(value="/importStudent")
 	public String importStudent(String path,ModelMap modelMap) {
-		//String path = "C:\\Users\\fzj\\Desktop\\test.xls";
 		studentService.excelImport(path);
 		return "redirect:/lesson/list";
 	}

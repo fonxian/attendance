@@ -26,8 +26,8 @@ public class LessonServiceImpl extends BaseServiceImpl implements LessonService{
 	
 	@Override
 	public boolean add(Lesson lesson) {
-		addLesson(lesson);
 		lessonMapper.insert(lesson);
+		addLesson(lesson);
 		return true;
 	}
 

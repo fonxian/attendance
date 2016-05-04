@@ -6,7 +6,7 @@
             return(
                  <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
  <h1 className="page-header">课程管理</h1>
- <button type="button"className="btn btn-primary btn-sm"> <a href="../lesson/add">添加课程</a></button>
+ <button type="button"className="btn btn-primary btn-sm"  onClick={this.handleClick} > 添加课程</button>
    <div className="table-responsive">
             <table className="table table-striped">
               <thead>
@@ -31,7 +31,10 @@
           </div>
   </div>
               );
-            }
+            },
+    	handleClick: function (event) {
+   	  	 	window.location.href = '../lesson/add';
+  	  }
 
         });
 

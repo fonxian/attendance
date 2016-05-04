@@ -27,7 +27,7 @@ var InfoModel = React.createClass({
         <tr>
           <td>${student.id}</td>
           <td>${student.name}</td>
-          <td><a href="student/del?studentid=${student.id}">删除</a></td>
+          <td><a href="../student/del?studentid=${student.id}">删除</a></td>
         </tr>
          </#list>
               </tbody>
