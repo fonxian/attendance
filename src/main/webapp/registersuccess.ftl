@@ -14,6 +14,6 @@
   </head>
   
   <body>
-    注册成功，<a href="index"> 返回登录页面</a> <br>
+    注册成功，<a href="../index"> 返回登录页面</a> <br>
   </body>
 </html>

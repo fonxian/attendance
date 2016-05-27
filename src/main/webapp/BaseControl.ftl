@@ -37,7 +37,7 @@
               <div id="navbar" className="navbar-collapse collapse">
                 <ul className="nav navbar-nav navbar-right">
                   <li><a href="../teacher/index">首页</a></li>
-                  <li><a href="../tool/setting">设置</a></li>
+                  <li><a href="../teacher/logout">登出</a></li>
                   <li><a href="../tool/help">帮助</a></li>
                 </ul>
               </div>

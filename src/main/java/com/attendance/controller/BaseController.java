@@ -10,7 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 
 import com.attendance.model.Teacher;
-
+/**
+ * 基础控制层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Controller
 public class BaseController {
 

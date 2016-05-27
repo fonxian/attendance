@@ -14,7 +14,14 @@ import com.attendance.model.Teacher;
 import com.attendance.service.TeacherService;
 import com.attendance.service.exception.TeacherErrorException;
 import com.attendance.util.MD5Utils;
-
+/**
+ * 教师管理控制层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Controller
 @RequestMapping(value="/teacher")
 public class TeacherController extends BaseController{
@@ -32,6 +39,11 @@ public class TeacherController extends BaseController{
 		return "/react/test";
 	}
 	
+	@RequestMapping(value="/test")
+	public String test(){
+		return "/registersuccess";
+	}
+	
 	@RequestMapping(value="/login")
 	public  String login(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws TeacherErrorException {
 		String username = request.getParameter("username");
@@ -44,15 +56,21 @@ public class TeacherController extends BaseController{
 			return "teacher/index";
 		} else {
 			return "loginFailure";
-		}
+		}	
+	}
+	
+	@RequestMapping(value="/logout")
+	public  String logout(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws TeacherErrorException {
+		request.getSession().invalidate();
+		return "redirect:/index";
 	}
 	
 	@RequestMapping(value="/register")
-	public String register(Teacher teacher,ModelMap modelMap){
+	public String register(Teacher teacher,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
 		String password =MD5Utils.md5(teacher.getPassword()).toLowerCase();
 		teacher.setPassword(password);
 		teacherService.insert(teacher);
-		modelMap.put("teacher", teacher);
+		request.getSession().invalidate();
 		return "registerSuccess";
 	}
 	

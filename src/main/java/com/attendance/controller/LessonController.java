@@ -12,7 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.attendance.model.Lesson;
 import com.attendance.model.Teacher;
 import com.attendance.service.LessonService;
-
+/**
+ * 课程管理控制层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Controller
 @RequestMapping(value="/lesson")
 public class LessonController extends BaseController{
@@ -49,9 +56,6 @@ public class LessonController extends BaseController{
 	public String list(HttpServletRequest request,ModelMap modelMap){
 		Teacher teacher = (Teacher)request.getSession().getAttribute("teacher");
 		List<Lesson> lessonGroup = lessonService.getGroupByTeacher(teacher.getId());
-		for(Lesson lesson:lessonGroup){
-			System.out.println(lesson.getName());
-		}
 		modelMap.put("lessonGroup", lessonGroup);
 		return "teacher/manageLesson";
 	}

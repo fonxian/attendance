@@ -1,0 +1,19 @@
+@charset "utf-8";
+ /*
+指定动画
+-webkit-animation-name: testAnimation;
+持续时间
+-webkit-animation-duration: 0.4s;
+执行次数 （infinite 无限 | <number>）
+-webkit-animation-iteration-count: 1;
+缓动类型（linear 无缓动 | ease-in 从0加速  | ease-out 减速到0 | ease-in-out 前半段从0加速，后半段减速到0）
+-webkit-animation-timing-function: linear;
+*/
+@-webkit-keyframes leftRight {
+    0%{left:0;}
+    25% {left:20px;-webkit-animation-timing-function:ease-out;}
+    50% {left:-20px;-webkit-animation-timing-function:ease-out;}
+    75% {left:20px;-webkit-animation-timing-function:ease-out;}
+    100% {left:0;-webkit-animation-timing-function:ease-out;}
+}
+.G-Anim-leftRight {-webkit-animation:leftRight .4s 1 linear;}

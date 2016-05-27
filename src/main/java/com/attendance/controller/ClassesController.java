@@ -13,13 +13,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.attendance.model.Classes;
 import com.attendance.service.ClassesService;
-
+/**
+ * 班级管理控制层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Controller
 @RequestMapping(value="/classes")
 public class ClassesController extends BaseController{
 
 	@Autowired
 	private ClassesService classesService;
+	
+	@RequestMapping(value="/addClass")
+	public String addClass(){
+		return "teacher/addClass";
+	}
+	
+	@RequestMapping(value="/addLessonClass")
+	public String addLessonClass(){
+		return "teacher/addLessonClass";
+	}
 	
 	@RequestMapping(value="/list")
 	public String list(int lessonid,ModelMap modelMap){
@@ -29,20 +46,10 @@ public class ClassesController extends BaseController{
 		return "teacher/listLessonClass";
 	}
 	
-	@RequestMapping(value="/addClass")
-	public String addClass(){
-		return "teacher/addClass";
-	}
-	
 	@RequestMapping(value="/saveClass")
 	public String saveClass(Classes classes) {
 		classesService.insert(classes);
 		return"teacher/listLessonClass";
-	}
-	
-	@RequestMapping(value="/addLessonClass")
-	public String addLessonClass(){
-		return "teacher/addLessonClass";
 	}
 	
 	@RequestMapping(value="/saveLessonClass")
@@ -50,7 +57,7 @@ public class ClassesController extends BaseController{
 		int lesson_id= ServletRequestUtils.getIntParameter(request, "lessonid");
 		int classes_id= ServletRequestUtils.getIntParameter(request, "classes_id");
 		classesService.insertLessonClasses(classes_id, lesson_id);
-		return"teacher/listLessonClass";
+		return"redirect:/classes/list?lessonid="+lesson_id+"";
 	}
 	
 	@RequestMapping(value="/delLessonClass")

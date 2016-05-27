@@ -7,14 +7,14 @@ var InfoModel = React.createClass({
             return(
                   <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 className="page-header">班级学生列表</h1>
-    <button type="button"className="btn btn-primary btn-sm"> <a href="../student/add"><font color="#FFFFFF">添加学生</font></a></button>
+       <button type="button"className="btn btn-primary btn-sm"  onClick={this.handleClick} > 添加学生</button>
      <label className="import">导入学生</label>
       <form action="../student/importStudent" class="form-horizontal" method="post">
-          <input name = "path" type="file" id = "import"/>
+          <input name = "path" type="file" id = "import" />
           <button type="submit">导入</button>
         </form>
       <div className="table-responsive">
-            <table className="table table-striped">
+            <table className="table">
               <thead>
                 <tr>
                   <th>学号</th>
@@ -35,7 +35,10 @@ var InfoModel = React.createClass({
           </div>
        </div>
               );
-            }
+            },
+    	handleClick: function (event) {
+   	  	 	window.location.href = '"../student/add';
+  	  }
 
         });
 
@@ -48,5 +51,3 @@ var InfoModel = React.createClass({
     );
 
 </script>
-
-

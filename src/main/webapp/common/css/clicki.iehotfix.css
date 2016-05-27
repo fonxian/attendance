@@ -1,0 +1,75 @@
+@charset "utf-8";
+/*IE样式修正文件*/
+
+.theCenterBox {overflow:hidden;}
+.theLoginBox {background:#d7d7d7 url(images/4Ie/loginBg_31.jpg) 0 0 repeat-x;border:.1em solid #004890;overflow:hidden;}
+
+.placeholderClass {color:#A9A9A9;}
+.G-frameFooter {background:#333 url(images/4Ie/adminBg_29.jpg) 0 0 repeat-x;}
+.G-tabBox .tabBnt li {}
+.G-tabBox .tabBnt {*zoom:1;}
+.G-tabBox .tabBnt .act {*pisition:relative;z-index:1;}
+
+.G-form input.IE-submitBnt ,.G-form input.IE-resetBnt{width:8em;padding:.5em 1em .3em 2em;letter-spacing:1em;}
+.G-form input.IE-submitBnt {border:.1em solid #06c;background:url(images/4Ie/adminBnt_29.jpg) 0 0 repeat-x;color:#fff;}
+.G-form input.IE-resetBnt {border:.1em solid #999;background:url(images/4Ie/adminBnt_32.jpg) 0 0 repeat-x;color:#fff;color:#333;}
+
+/*登录注册提交按钮修正*/
+.loginSubmitBnt input {border:0 solid #005894;margin:0;padding:.5em 1em .5em 1.5em;height:2.4em;_background:#005894 url(images/4Ie/bnt_arr_03.gif) right center no-repeat;}
+
+.G-tableSet .theTableBox{padding:0 1px 0 0;}
+
+.G-frameBodyInnner {border:.1em solid #C6D7DD;border-top:none;}
+
+/*登录注册分割线修正*/
+.theLoginBox .theRegArea {border-left:.1em solid #ccc;}
+
+/*ie 记住用户名和密码修正*/
+.theLoginBox em input {width:auto;border:none;}
+
+/*ie6 登录注册 logo 修正*/
+.theIE6LogoImg {width:268px;height:135px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/resources/images/logo_03.png',sizingMethod='scale');overflow:hidden;margin:0 0 -1.5em;}
+.theLogoImg {_display:none;}
+
+.G-imNav div {_margin:-.3em 0 0;}
+.G-imNav strong {overflow:hidden;}
+.G-imNav li {width:150px;height:26px;overflow:hidden;padding:0;margin:0;}
+.G-imNav li.act {width:147px;height:24px;overflow:hidden;border-bottom:.2em solid #DCEFF5;border-left:.2em solid #DCEFF5;border-right:.2em solid #fff;border-top:.1em solid #fff;}
+.G-imNav .act a {line-height:24px;width:auto;border:0;}
+.G-imNav li a {line-height:24px;width:110px;padding:0 0 0 40px;border-bottom:.2em solid #F2FCFF;border-left:.2em solid #F2FCFF;border-right:.2em solid #F2FCFF;border-top:.1em solid #F2FCFF;}
+.G-imNav li a:hover {border-color:#fff;color:blue;}
+
+.G-imNav .liHover {width:150px;height:26px;overflow:hidden;background:#fff;}
+/*.G-imNav li a {_background:url(images/micos.gif) no-repeat;padding:10px 0 10px 65px;}*/
+
+.selectWidget li {margin:0 .2em 1.5em .3em\9;}
+
+.theSmallWidget {zoom:1;position:relative;}
+
+.theInnerLogo {_display:none;}
+.G-frameHead .theIE6InnerLogoImg {width:159px;height:80px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/resources/images/logo_03.png',sizingMethod='scale');_overflow:hidden;_margin:0 0 0 1.5em}
+
+.G-frameHead .nav  .G-addSite a {margin:12px 0 0;}
+
+.G-showArea .inArea {zoom:1;}
+
+.frameBodyBox {zoom:1;}
+
+.theChart div {background:none;}
+.G-gotoOtherSite {_width:140px;}
+
+
+
+.btn {_line-height:1em;_zoom:1;_width:auto;_height:100%;*padding:.5em .25em 0;}
+.choseDate span {*margin-right:.5em!important;*float:left;*display:inline;}
+.choseDate {*zoom:1;}
+.hasDatepicker {_width:80px;}
+
+.add-bind-Btn {*position:relative;*margin:0 0 -2em!important;_float:right;*top:0;_width:66px;_height:15px;}
+.G-frameHead .G-innerHead .usertoolbar ul li.info {*right:0;*width:100%;_left:0;_width:50%;}
+.G-frameHead .G-innerHead .usertoolbar ul li.info ul{_background:#fff;}
+.G-frameHead .G-innerHead .usertoolbar ul li.add{_margin:0px 2px;}
+
+.siteAddBtn{background:url(images/sitelist.png) 0px -1px no-repeat;} 
+.siteList .inArea .theShowArea{padding:24px 36px;}
+.siteList .inArea .siteSearch{filter:none;}

@@ -14,7 +14,7 @@ import com.attendance.service.base.BaseCache;
 import com.attendance.service.base.ErrorCode;
 import com.attendance.service.exception.TeacherErrorException;
 /**
- * 基础业务层抽象类
+ * 基础业务层实现类
  * @author fonxian
  * @version 
  * 版本号：100-000-000<br/>

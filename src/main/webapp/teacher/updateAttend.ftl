@@ -1,6 +1,6 @@
 <#include "../BaseControl.ftl" encoding="utf-8">
  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
- <h1 class="page-header">添加课程</h1>
+ <h1 class="page-header">考勤修改</h1>
 
     <form action="../attend/saveUpdateAttend" class="form-horizontal" method="post">
  

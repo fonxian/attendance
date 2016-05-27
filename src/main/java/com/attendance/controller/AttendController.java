@@ -20,7 +20,14 @@ import com.attendance.model.AttendTemp;
 import com.attendance.service.AttendService;
 import com.attendance.service.StudentService;
 import com.attendance.util.Result;
-
+/**
+ * 考勤管理控制层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Controller
 @RequestMapping(value="/attend")
 public class AttendController extends BaseController{

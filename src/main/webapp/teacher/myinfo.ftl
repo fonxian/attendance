@@ -1,4 +1,5 @@
 <#include "../BaseControl.ftl" encoding="utf-8">
+
 <script type="text/jsx">
 var InfoModel = React.createClass({
         render: function(){

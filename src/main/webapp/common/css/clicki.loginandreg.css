@@ -1,0 +1,58 @@
+@charset "utf-8";
+body {background:#2f7fb2 url(../img/topbg_01.png) top center no-repeat;font-family:Microsoft YaHei,sans-serif;}
+html{height:100%;overflow:hidden;}
+.theCenterBox {margin:0 auto;min-height:100%;height:100%;width:470px;padding:5px 0px 0px 0px;vertical-align:middle;z-index:1;}
+.theCenterBox .theLogoImg{ margin:0 auto; border:none; display: block;}
+.theCenterBox .theLoginBox {width:457px; background:#fff;margin:0 auto; border:1px solid #d1dee2;-moz-border-radius:3px;border-radius:3px;-moz-box-shadow:rgba(24, 108, 162, 0.6) 0 0 4px;-webkit-box-shadow:rgba(24, 108, 162, 0.6) 0 0 4px;box-shadow:rgba(24, 108, 162, 0.6) 4px;padding:0;display:inline-block;}
+.theCenterBox .theLoginBox .loginTxt {margin: 40px 0px 0px 43px;font-size: 16px;color: #4F6B21;font-weight: normal;}
+.theLoginBox .theLoginArea { width: 330px;float: left;display: block;margin: 10px 34px 0px 45px;}
+.theLoginBox .theLoginArea p {margin: 1px 0px 0px 0px;height: 92px;width: 330px;}
+.theLoginBox .theLoginArea p label{font-size:14px;text-align:right;color:#666;padding:0;}
+.theLoginBox .theLoginArea p input{display:block;line-height: 18px;transition: all 0.30s ease-in-out;-webkit-transition: all 0.30s ease-in-out;-moz-transition: all 0.30s ease-in-out;border: 1px solid #D2D9DC;;;outline:none; width:290px; margin: 8px 0px;height: 18px;border-radius:0px; padding: 8px 0px 8px 8px;}
+.theLoginBox .theLoginArea p span{ display:none;width:290px;background:url(../img/tip_bg.png) repeat;line-height:21px; margin: 0px 0px 0px 0px; padding:0px 0px 0px 8px;font-size:12px; border-radius:3px;color:#c83100; border: 1px solid #fceec1;}
+.theLoginBox .theLoginArea p input:hover{box-shadow: 0 0 0 5px rgba(247, 247, 250,.8);border-radius:0px;border: 1px solid #DADADA;}
+.theLoginBox .theLoginArea p input:focus{box-shadow:0 0 0 5px rgba(242, 248, 252,.8);border-radius:0px;border: 1px solid #B7D4EA;}
+.theLoginBox .theLoginArea p input.error, .theLoginBox .theLoginArea input.G-Anim-leftRight {box-shadow: 0 0 0 5px rgba(252, 245, 245, 0.8);;border-radius:0px;border: 1px solid #ECA9A4;}
+.theLoginBox .theLoginArea .loginSubmitBnt .theRememberMe, .theLoginBox .theLoginArea .loginSubmitBnt .theRememberMeLabel {display:inline-block;margin:26px 0px 15px 0px;color:#666;font-size:14px;}
+.theLoginBox .theLoginArea .loginSubmitBnt .forgotPasswordEm {font-size:12px; position:relative;top:8px;margin-left:50px;text-align:right;}
+.theLoginBox .theLoginArea .loginSubmitBnt .forgotPasswordEm a:link, .theLoginBox .theLoginArea .no_allow a:link, .theLoginBox .theLoginArea .no_allow a:visited,  .theLoginBox .theLoginArea .loginSubmitBnt .forgotPasswordEm a:visited { color:#ababab; text-decoration:none;}
+.theLoginBox .theLoginArea .loginSubmitBnt .forgotPasswordEm a:hover, .theLoginBox .theLoginArea .no_allow a:hover, .theLoginBox .theLoginArea .no_allow a:active,.theLoginBox .theLoginArea .loginSubmitBnt .forgotPasswordEm a:active {color:#ababab;text-decoration:underline;}
+.theLoginBox .theLoginArea .no_allow{margin: 0.6px 0px 9px 0px;padding: 5px 0px 4px 16px; font-size:14px;height: 40px;}
+.theLoginBox .theLoginArea .no_allow a { font-size:12px;margin-left:42px;color}
+.theLoginBox .theRegArea { float:left; width: 244px; padding: 37px 0px 110px 0px;border-left:1px solid #ccc; margin: 7px 0px 0px 0px;height: 138px;}
+.theLoginBox .theRegArea #reg_reg{padding-bottom:196px;}
+.theLoginBox .theRegArea h2{font-size:16px; color:#4f6b21;font-weight:normal; text-align:center;}
+.theLoginBox .theRegArea p { text-align:center;font-size:14px;padding:18px 0px 34px 0px;}
+.theLoginBox .theRegArea a, theLoginBox .theRegArea a.reg_login{cursor:pointer;text-decoration:none;}
+.theLoginBox .theRegArea a.reg_login{margin-left:75px;}
+.theLoginBox .theRegArea a.apply_reg{margin-left:75px;}
+.theLoginBox .theRegArea a.forgot_login{margin-left:75px;}
+.theLoginBox .forgot_right{ float:left; width: 244px; padding: 26px 0px 26px 0px;border-left:1px solid #ccc; margin: 39px 0px 42px 0px;}
+.theLoginBox .setpassword_right{}
+.theLoginBox .loginSubmitBnt .theSubmitButton { width:105px;height:45px;border:none;background:none;cursor:pointer;}
+/*登录页面*/
+.theLoginBox .theRegArea .login_reg{ display:block;background: url(../img/login_bg.png) no-repeat -12px -164px; height:45px;width:140px; margin-left: 49px;}
+.theLoginBox .theRegArea .login_reg:hover{ display:block;background: url(../img/login_bg.png) no-repeat -12px -211px; height:45px;width:140px; padding:0px;}
+.theLoginBox .loginSubmitBnt .login_submit{margin:0px 0px 33px 0px;border:none;display:block;background:url(../img/login_bg.png) no-repeat -12px -12px; height:45px;width:105px; padding:0px;}
+.theLoginBox .loginSubmitBnt .login_submit:hover{background: url(../img/login_bg.png) no-repeat -120px -12px; height:45px;width:105px; padding:0px;}
+/*注册页面*/
+.theRegArea .apply_reg{ display:block;background: url(../img/apply_account.png) no-repeat 0px 0px; height:35px;width:99px; padding:0px;}
+.theRegArea .apply_reg:hover{ display:block;background: url(../img/apply_account.png) no-repeat -115px 0px; height:35px;width:99px; padding:0px;}
+.theRegArea .reg_login{ display:block;background: url(../img/login_bg.png) no-repeat -15px -10px; height:45px;width:100px; padding:0px;}
+.theRegArea .reg_login:hover{ display:block;background: url(../img/login_bg.png) no-repeat -123px -10px; height:45px;width:100px; padding:0px;}
+.loginSubmitBnt .reg_submit{ margin:0px 0px 33px 0px;border:none;display:block;background: url(../img/login_bg.png) no-repeat -12px -101px; height:45px;width:105px; padding:0px;}
+.loginSubmitBnt .reg_submit:hover{ background: url(../img/login_bg.png) no-repeat -120px -101px; height:45px;width:105px; padding:0px;}
+/*忘记密码页面*/
+.theRegArea .forgot_login{ display:block;background: url(../img/login_btn.png) no-repeat -205px -3px; height:45px;width:90px; padding:0px;}
+.theRegArea .forgot_login:hover{background: url(../img/login_btn.png) no-repeat -205px -50px; height:45px;width:90px; padding:0px;}
+.loginSubmitBnt .forgot_submit{ border:none;display:block;background: url(../img/login_bg.png) no-repeat -12px -56px; height:45px;width:105px; padding:0px;}
+.loginSubmitBnt .forgot_submit:hover{ background: url(../img/login_bg.png) no-repeat -120px -56px; height:45px;width:105px; padding:0px;}
+/*重置密码页面*/
+.theRegArea .setpassword_login{margin-left:49px;display:block;background: url(../img/login_bg.png) no-repeat -320px -164px; height:45px;width:140px; padding:0px;}
+.theRegArea .setpassword_login:hover{ background: url(../img/login_bg.png) no-repeat -320px -211px; height:45px;width:140px; padding:0px;}
+.loginSubmitBnt .setpassword_submit{ border:none;display:block;background: url(../img/login_bg.png) no-repeat -12px -101px; height:45px;width:105px; padding:0px; margin: -9px 0px 18px 0px; position: relative;}
+.loginSubmitBnt .setpassword_submit:hover{background: url(../img/login_bg.png) no-repeat -120px -101px; height:45px;width:105px; padding:0px;}
+.G-LRFooter {font-size: 14px;clear: both;margin: 0 auto;text-align: center; position:absolute; bottom:0; left:37%;padding:0px 0px 10px 0px;}
+/*申请clicki帐号*/
+.loginSubmitBnt .apply_submit{ margin:24px 0px 33px 0px;border:none;display:block;background: url(../img/apply_bg.png) no-repeat 2px 0; height:45px;width:105px; padding:0px;}
+.loginSubmitBnt .apply_submit:hover{ background: url(../img/apply_bg.png) no-repeat -106px 0; height:45px;width:105px; padding:0px;}

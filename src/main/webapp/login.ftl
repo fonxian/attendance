@@ -1,73 +1,59 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/common/css/clicki.web.css?V=20120501" media="screen" />
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/common/css/clicki.loginandreg.css?V=20120501" media="screen" />
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/common/css/clicki.webkitanimation.css?V=20120501" media="screen" />
+<title>用户登录</title>
+<!--[if lte IE 9 ]><link rel="stylesheet" href="${rc.contextPath}/common/css/clicki.iehotfix.css?V=20120501" /><!
 
-    <title>登录-科大课堂点名系统</title>
+[endif]-->
+<!--[if lte IE 9]>
+<style>
+body {background:#2f7fb2 url(${rc.contextPath}/common/img/topbg_01.png?V=20120501) top center no-repeat;}
+html{height:100%;overflow:hidden;background:#2f7fb2 url(${rc.contextPath}/common/img/topbg_01.png?V=20120501) top 
 
+center no-repeat;}
+</style>
+<![endif]-->
+</head>
+<body>
 
-    <link href="${rc.contextPath}/common/css/bootstrap.min.css" rel="stylesheet">
+<div class="theCenterBox" style="">
+  <div class="theLoginBox">
+    <div class="loginTxt">登录</div>
+    <div class="theLoginArea" id="loginBox">
+      <form id="leftForm" action="teacher/login" method="post">
+        <p style="position: relative;">
+          <label for="LoginForm_email">用户名：</label>
+          <input placeholder="请输入您的账号" name="username" id="LoginForm_email" type="text" maxlength="255"  />
+          <span>请输入您的账号</span> </p>
+        <p style="position: relative;">
+          <label for="LoginForm_password">密码：</label>
+          <input placeholder="请输入您的密码" name="password" id="LoginForm_password" type="password" maxlength="16" />
+          <span>请输入您的密码</span> </p>
+        <div class="loginSubmitBnt fixPadding">
+          <div>
+            <input id="ytautoLogin" type="hidden" value="0" name="LoginForm[rememberMe]" />
+            <input id="autoLogin" class="theRememberMe" name="LoginForm[rememberMe]" value="1" 
 
+checked="checked" type="checkbox" />
+            <label class="theRememberMeLabel" for="autoLogin">记住用户名和密码</label>
+            <em class="forgotPasswordEm"><a href="" title="忘记密码">忘记密码?</a>&nbsp;&nbsp;&nbsp;<a 
 
-    <link href="${rc.contextPath}/common/css/signin.css" rel="stylesheet">
-
-
-    <script src="${rc.contextPath}/common/js/ie-emulation-modes-warning.js"></script>
-
-  </head>
-
-  <body>
-
-    <div class="container">
-
-      <form action="teacher/login" method="post" class="form-signin">
-        <h2 class="form-signin-heading">请登录</h2>
-        <label for="inputEmail" class="sr-only">用户名</label>
-        <input type="email" id="inputEmail" name="username" class="form-control" placeholder="用户名（邮箱）" required autofocus>
-        <label for="inputPassword" class="sr-only">密码</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> 记住密码
-          </label>
+href="register" title="马上注册">马上注册</a></em>
+            <div class="login_submit">
+              <input name="userSubmit" class="theSubmitButton" value="" type="submit" />
+            </div>
+          </div>
+          <!--<p class="G-c036">请使用Chrome,Firefox,Safari或IE9以获得最佳浏览体验</p>-->
         </div>
-        <button id="login" class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
       </form>
-       <button id="register" class="btn btn-lg btn-primary">注册</button>
-    </div> <!-- /container -->
+    </div>
+  </div>
+</div>
 
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="common/js/ie10-viewport-bug-workaround.js"></script>
-          <script src="${rc.contextPath}/common/js/jquery-1.12.2.js"></script>
-  </body>
-  	<script>
-	$(document).ready(function(){
-		$("#login").click(function(){
-			var username = $('#inputEmail').val();
-			var password = $('#inputPassword').val();
-			$.ajax({
-				type:"POST",
-				url : "${rc.contextPath}/login",
-				data:{username:username,password:password},
-		  		success:function(){
-				    alert("登录成功！");
-				}
-			});
-		});
-		
-		$("#register").click(function(){
-			window.location.href = 'register';
-		});
-		
-	});
-
-
-
-
-</script>
+</body>
 </html>

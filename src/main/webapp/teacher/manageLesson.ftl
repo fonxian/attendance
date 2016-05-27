@@ -8,7 +8,7 @@
  <h1 className="page-header">课程管理</h1>
  <button type="button"className="btn btn-primary btn-sm"  onClick={this.handleClick} > 添加课程</button>
    <div className="table-responsive">
-            <table className="table table-striped">
+            <table className="table">
               <thead>
                 <tr>
                   <th>课程编号</th>

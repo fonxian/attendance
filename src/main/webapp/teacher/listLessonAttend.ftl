@@ -7,7 +7,7 @@
                 <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 className="page-header">课程考勤情况</h1>
         <div className="table-responsive">
-            <table className="table table-striped">
+            <table className="table">
               <thead>
                 <tr>
                   <th>学号</th>

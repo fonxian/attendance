@@ -14,14 +14,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.attendance.model.Student;
 import com.attendance.service.StudentService;
-
+/**
+ * 学生管理控制层实现类
+ * @author fonxian
+ * @version 
+ * 版本号：100-000-000<br/>
+ * 创建日期：2016-03-15<br/>
+ * 历史修订：<br/>
+ */
 @Controller
 @RequestMapping(value="/student")
 public class StudentController extends BaseController{
 	
 	@Autowired
 	private StudentService studentService;
-		
+	
+	@RequestMapping(value="/add")
+	public String add(){
+		return new String("teacher/addStudent");
+	}
+	
 	@RequestMapping(value="/list")
 	public String list(int classid,ModelMap modelMap){
 		List<Student> classStudentGroup = studentService.getGroupByClass(classid);
@@ -30,11 +42,6 @@ public class StudentController extends BaseController{
 		}
 		modelMap.put("classesStudentGroup",classStudentGroup);
 		return "teacher/listClassStudent";
-	}
-	
-	@RequestMapping(value="/add")
-	public String add(){
-		return new String("teacher/addStudent");
 	}
 	
 	@RequestMapping(value="/saveAdd")
